@@ -1,0 +1,87 @@
+body {
+	background-color: #f5a623; /* Matching background color */
+	font-family: "Roboto", sans-serif; /* Use Roboto for inputs and text */
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.container {
+	text-align: center;
+}
+
+.title {
+	font-family: "Press Start 2P", cursive; /* Use Press Start 2P for title */
+	font-size: 40px;
+	color: #f44336; /* Matching title color */
+	margin-bottom: 20px;
+}
+
+.signup-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.signup-form input {
+	width: 250px;
+	height: 40px;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	background-color: #00bfa5; /* Matching input background color */
+	color: #212121; /* Matching input text color */
+	font-size: 16px;
+	text-align: center;
+}
+
+.signup-form input::placeholder {
+	color: #212121;
+	font-size: 16px;
+}
+.signup-button-container {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+}
+.signup-button {
+	width: auto;
+	height: 40px;
+	margin-top: 10px;
+	background-color: #f44336; /* Matching button background color */
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	font-family: "Press Start 2P", cursive; /* Use Press Start 2P for button text */
+	font-size: 14px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.signup-button:hover {
+	background-color: #d32f2f; /* Slightly darker on hover */
+}
+
+.login-prompt {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #212121; /* Matching prompt text color */
+}
+
+.login-signup-link {
+	color: #f44336; /* Matching link color */
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.login-link:hover {
+	text-decoration: underline;
+}
+.anchor-form {
+	text-decoration: none;
+	color: white;
+}
+
