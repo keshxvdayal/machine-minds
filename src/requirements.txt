@@ -1,0 +1,8 @@
+Flask
+Flask-Cors
+Flask-RESTful
+Flask-SQLAlchemy
+Flask-Session
+Flask-Dance
+oauthlib
+python-dotenv
