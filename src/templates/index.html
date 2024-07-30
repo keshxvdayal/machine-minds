@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="script.js">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link href="{{ url_for('static',filename='script.js') }}">
     <title>Machine Minds</title>
     <meta
         content="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/62d5bfccf87b7d0fe3772651_group-1948756519.webp"
@@ -68,18 +68,18 @@
         <div class="container hero-container">
             <h1 class="heading"><strong>Explore a New Type of Machine Learning</strong></h1>
             <p class="paragraph-3">Andi Mandi Sandi Jisne Hame FUll Marks nhi diye... :)</p>
-            <div class="cta"><a href="../src/templates/signup.html" class="pixel-button button-hero"><strong
+            <div class="cta"><a href="{{ url_for('page_login') }}" class="pixel-button button-hero"><strong
                         class="pixel-button-label">Signup / Login</strong></a><a href="{{url_for('page_forum')}}"
                     target="_blank" class="pixel-button button-hero"><strong>Join the community</strong></a></div>
         </div>
         <div class="background">
             <div class="tree">
-                <img src="../Assets/tree.png" alt="">
-                <img src="../Assets/tree.png" alt="">
+                <img src="{{ url_for('static', filename='Assets/tree.png') }}" alt="">
+                <img src="{{ url_for('static', filename='Assets/tree.png') }}" alt="">
             </div>
             <div class="land">
-                <img src="../Assets/land (1).png" alt="">
-                <img src="../Assets/land (1).png" alt="">
+                <img src="{{ url_for('static', filename='assets/land (1).png') }}" alt="">
+                <img src="{{ url_for('static', filename='assets/land (1).png') }}" alt="">
             </div>
         </div>
 

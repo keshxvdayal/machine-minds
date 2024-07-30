@@ -6,3 +6,4 @@ Flask-Session
 Flask-Dance
 oauthlib
 python-dotenv
+markdown
