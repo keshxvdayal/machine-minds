@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Minds | Guides</title>
+</head>
+<body>
+
+    {% for url,name in guides %}
+        <a target="_blank" href="{{ url }}">{{ name[:-4] }}</a><br>
+    {% endfor %}
+    
+</body>
+</html>

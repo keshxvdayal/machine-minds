@@ -7,3 +7,5 @@ Flask-Dance
 oauthlib
 python-dotenv
 markdown
+matplotlib
+pygal

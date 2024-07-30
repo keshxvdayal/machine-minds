@@ -30,6 +30,7 @@
 
 <body>
 
+
     <!--========== Landing Page background ==========-->
 
     <div class="cover cover-bg">
@@ -52,7 +53,7 @@
         <!-- =============NAVBAR============== -->
         <div class="header">
             <ul role="list" class="menu w-list-unstyled"></ul><a href="/" aria-current="page"
-                class="w-inline-block w--current"><img src="../Assets/Logo1.png" loading="eager" width="305" alt=""
+                class="w-inline-block w--current"><img src="{{ url_for('static', filename='assets/Logo1.png') }}" loading="eager" width="305" alt=""
                     class="logo" /></a>
             <div class="actions"><a href="../src/templates/signup.html" class="pixel-button"><strong
                         class="pixel-button-label">Signup / Login</strong></a></div>
@@ -74,8 +75,8 @@
         </div>
         <div class="background">
             <div class="tree">
-                <img src="{{ url_for('static', filename='Assets/tree.png') }}" alt="">
-                <img src="{{ url_for('static', filename='Assets/tree.png') }}" alt="">
+                <img src="{{ url_for('static', filename='assets/tree.png') }}" alt="">
+                <img src="{{ url_for('static', filename='assets/tree.png') }}" alt="">
             </div>
             <div class="land">
                 <img src="{{ url_for('static', filename='assets/land (1).png') }}" alt="">

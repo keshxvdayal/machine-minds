@@ -17,6 +17,8 @@ import pygal.style
 
 from dotenv import load_dotenv
 
+from consts import *
+
 from os import environ
 from datetime import datetime
 
@@ -116,7 +118,6 @@ class EndpointSubmitComment(Resource):
 
         post_id = request.get_json().get('post_id')
         content = request.get_json().get('content')
-        print(post_id, content)
         if not post_id or not content: return {'message': 'Invalid form data'}, 400
         comment = ForumComment(author=session['username'], post_id=post_id, content=content, submitted=datetime.now())
         db.session.add(comment)
@@ -140,10 +141,12 @@ def page_index():
     return render_template('index.html', username=username, email=email)
 
 
+
 @app.route('/login/')
 def page_login():
     if not google.authorized: return redirect(url_for('google.login'))
     return redirect(url_for('page_index'))
+
 
 
 @app.route('/authorised/')
@@ -161,7 +164,7 @@ def page_authorized():
     if not resp.get('email'):          return 'Unable to fetch email'
     
     email = resp['email']
-    user = User.query.get(resp['email'])
+    user  = db.session.get(User, email)
     # If we have never seen this user before, add him to the database
     if not user:
         username = email.split('@')[0]
@@ -183,6 +186,23 @@ def page_logout():
     if not google.authorized: return render_template('logout-fail.html')
     session.clear()
     return render_template('logout.html')
+
+
+
+@app.route('/guides/')
+def page_guide():
+    ret = sorted(GUIDES.items())
+    return render_template('guides/index.html', guides=ret)
+
+
+
+@app.route('/guides/<int:guide_id>/')
+def page_guide_id(guide_id:int):
+    if guide_id not in GUIDES: return 'Invalid guide ID', 400
+    
+    fn = GUIDES[guide_id]
+    fp = f'guides/{fn}'
+    return redirect(url_for('static', filename=fp))
 
 
 
