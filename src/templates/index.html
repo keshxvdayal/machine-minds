@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='HOME-style.css') }}">
     <link href="{{ url_for('static',filename='script.js') }}">
     <title>Machine Minds</title>
     <meta
@@ -32,7 +32,7 @@
 
 
     <!-------------------------------------------------------------------------------------------------
-    --------------------------------------------- Home-Background ---------------------------------------------------
+    --------------------------------------------- clouds ---------------------------------------------------
     ------------------------------------------------------------------------------------------------- -->
 
     <div class="cover cover-bg">
@@ -63,9 +63,10 @@
                         class="pixel-button-label">Signup /
                         Login</strong></a></div>
             <ul role="list" class="menu w-list-unstyled">
-                <li class="menu-item"><a href="{{url_for('page_playground')}}" target="_blank" class="header-link">Playground</a></li>
-                <li class="menu-item"><a href="" target="_blank"
-                        class="header-link">Forum</a></li>
+                <li class="menu-item"><a href="{{url_for('page_playground')}}" target="_blank"
+                        class="header-link">Playground</a></li>
+                <li class="menu-item"><a href="{{url_for('page_forum')}}" target="_blank" class="header-link">Forum</a>
+                </li>
                 <li class="menu-item"><a href="#" target="_blank" class="header-link">Help Center</a></li>
             </ul>
         </div>
@@ -75,8 +76,7 @@
         ------------------------------------------------------------------------------------------------- -->
         <div class="container hero-container">
             <h1 class="heading"><strong>Explore a New Way to learn Machine Learning</strong></h1>
-            <p class="paragraph-3">Gamified Machine Learning</p>
-            <div class="cta"><a href="./playground//index.html" class="pixel-button button-hero"><strong
+            <div class="cta"><a href="{{url_for('page_playground')}}" class="pixel-button button-hero"><strong
                         class="pixel-button-label">Playground</strong></a><a href="{{url_for('page_forum')}}"
                     target="_blank" class="pixel-button button-hero"><strong>Join the community</strong></a></div>
         </div>
@@ -88,7 +88,7 @@
                     <img src="{{ url_for('static', filename='assets/char.png')}}" alt="">
                 </div>
             </div>
-            
+
             <div class="land">
                 <img src="{{ url_for('static', filename='assets/land (1).png') }}" alt="">
                 <img src="{{ url_for('static', filename='assets/land (1).png') }}" alt="">
@@ -422,7 +422,7 @@
                             class="image2" style="height:10rem;" />
                         <!-- <p>Join one of the largest web3 communities &amp;
                             a player base who is eager to experience and play new games.</p> -->
-                            <a href="{{url_for('page_playground')}}" class="pixel-button button-hero"><strong
+                        <a href="{{url_for('page_playground')}}" class="pixel-button button-hero"><strong
                                 class="pixel-button-label">Buy Credits</strong></a>
 
                     </div>
@@ -430,24 +430,24 @@
                 <div class="pixel-box card pixel-box-blue">
                     <div class="pixel-box-inner">
                         <h3 class="box-heading">Advance Plan</h3><img
-                            src="https://media.tenor.com/TGVhV3buACUAAAAi/danganronpa-v3.gif" loading="lazy" style="height:10rem;" alt="nahhhh"
-                            class="image2" />
+                            src="https://media.tenor.com/TGVhV3buACUAAAAi/danganronpa-v3.gif" loading="lazy"
+                            style="height:10rem;" alt="nahhhh" class="image2" />
                         <!-- <p>
                             rewards just by playing the game. Be on the look out for an airdrop.</p> -->
-                            <a href="{{url_for('page_playground')}}" class="pixel-button button-hero"><strong
+                        <a href="{{url_for('page_playground')}}" class="pixel-button button-hero"><strong
                                 class="pixel-button-label">Buy Credits</strong></a>
                     </div>
                 </div>
                 <div class="pixel-box card pixel-box-pink">
                     <div class="pixel-box-inner">
                         <h3 class="box-heading">Lifetime Acess</h3><img
-                            src="https://cdn.pixabay.com/animation/2024/04/14/02/43/02-43-38-360_512.gif" loading="lazy" alt=""
-                            class="image-17" />
+                            src="https://cdn.pixabay.com/animation/2024/04/14/02/43/02-43-38-360_512.gif" loading="lazy"
+                            alt="" class="image-17" />
                         <!-- <p>Prepare for new industries and possibilities to master. A whole new set of activities
                             await.
                         </p> -->
                         <a href="{{url_for('page_playground')}}" class="pixel-button button-hero"><strong
-                            class="pixel-button-label">Buy Credits</strong></a>
+                                class="pixel-button-label">Buy Credits</strong></a>
                     </div>
                 </div>
             </div>

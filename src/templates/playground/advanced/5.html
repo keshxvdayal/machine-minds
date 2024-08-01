@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='playground/advanced/style.css') }}">
+    <title>Machine Minds</title>
+
+    <script>
+        function gen() {
+            let kernel     = document.getElementById("kernel").value;
+            let randomiser = new Date().getTime();
+            var url = `{{url_for('page_plot', level=5)}}?kernel=${kernel}&randomiser=${randomiser}&show=True`;
+            document.getElementById("plot").src = url;
+        }
+    </script>
+</head>
+
+
+
+<body>
+    Please read <a href="{{url_for('page_guide_id', guide_id=5)}}" target="_blank">this</a> guide before proceeding
+
+    <br><br>
+    Algorithm: Support Vector Machines<br>
+    C: 1<br>
+    Gamma: Scale<br>
+    Degree: 2 <br>
+    Kernel:
+    <select id="kernel" onchange="onchange_mhd_svm_kernel()">
+        <option value="linear">Linear</option>
+        <option value="poly">Polynomial</option>
+        <option value="rbf">Radial Basis Function (RBF)</option>
+        <option value="sigmoid">Sigmoid</option>
+    </select>
+    
+    <br>
+    <button onclick="gen()">Generate</button>
+
+
+    <div id="plot-div">
+        <img id="plot" src="{{ url_for('page_plot', level=5) }}" alt="">
+    </div>
+
+</body>
+</html>
