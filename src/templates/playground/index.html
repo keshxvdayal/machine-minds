@@ -10,7 +10,6 @@
         rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../../static/text-box.css">
 </head>
 
 <body>
@@ -30,50 +29,54 @@
                 loading="eager" alt="" class="cloud-3 cloud-3-1" /><img
                 src="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/62cedd0333b4d08248813ec8_cloud2.png"
                 loading="eager" alt="" class="cloud-3 cloud-3-2" />
-            <div class="header">
-                <div class="actions"><a href="{{url_for('page_login')}}" class="pixel-button"><strong
-                            class="pixel-button-label">Signup /
-                            Login</strong></a></div>
+            <!-- <div class="header">
+                
                 <ul role="list" class="menu w-list-unstyled">
                     <li class="menu-item"><a href="{{url_for('page_playground')}}" target="_blank"
                             class="header-link">Playground</a></li>
                     <li class="menu-item"><a href="" target="_blank" class="header-link">Forum</a></li>
                     <li class="menu-item"><a href="#" target="_blank" class="header-link">Help Center</a></li>
                 </ul>
-            </div>
+            </div> -->
 
             <div class="main-section">
                 <img src="../../static/assets/logo-play.png" class="play-tag" width="70%" alt="" srcset="">
                 <div class="box-content">
                     <div class="box-section">
                         <div class="box-text">
-                            <h4 class="box-text">Hello world</h4>
                             <img src="../../static/assets/box-1.png" class="box" alt="" srcset="">
+                            <div class="box-text-main">
+                                <a href="{{url_for('page_basic')}}" target="_blank" class="btn-box-2">  <h2 class="box-text-main">BASIC</h2> </a>
+                            </div>
                         </div>
                         <img src="../../static/assets/box-2.png" class="box" alt="" srcset="">
+                        <div class="box-text-main-2">
+                            <a href="{{url_for('page_advance')}}" target="_blank" class="btn-box"> <h2 class="box-text-main-2">ADVANCE</h2> </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="main-page" id="landing">
                     <div class="char-page">
                         <div class="char-1">
-                            <!-- <img src="../../static/assets/sub2.png" class="sub" alt="">    -->
-                            <span id="bubble">
+                            <img src="../../static/assets/subtitle.gif" class="sub" alt="">
+                            <img src="https://media.tenor.com/BUKv6W4RYlwAAAAi/maki-harukawa-maki.gif" loading="lazy"
+                                style="height:10rem;" alt="nahhhh" class="image2" />
+                            <!-- <span id="bubble">
                                 <h1 id="quote">Pack my box with five dozen liquor jugs. Click to restart animation!</h1>
-                              </span>
+                              </span> -->
                         </div>
                         <div class="char-2">
-
                             <img src="https://media.tenor.com/TGVhV3buACUAAAAi/danganronpa-v3.gif" loading="lazy"
                                 style="height:10rem;" alt="nahhhh" class="image2" />
-                            <img src="../../static/assets/sub.png" class="sub" alt="">
+                            <img src="../../static/assets/subtitle-2.gif" class="sub" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<script src="../../static/playground.js"></script>
+    <script src="../../static/playground.js"></script>
 </body>
 
 </html>

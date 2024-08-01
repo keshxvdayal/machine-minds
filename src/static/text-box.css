@@ -25,8 +25,8 @@ body {
 
 h1 {
     color: #333;
-    font-size: 60px;
-    line-height: 50px;
+    font-size: 23px;
+    line-height: 20px;
     font-family: 'Arcade', sans-serif;
     padding: 20px 30px 5px 30px;
     background: #fff;
@@ -52,10 +52,11 @@ h1 {
 #bubble {
     opacity: 1.0;
     display: inline-block;
-    max-width: 700px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    max-width: 200px;
+    position: relative;
+    /* top: 50%; */
+    bottom: 150px;
+    /* left: 50%; */
     transform: translate(-50%, -50%);
     box-shadow: 
         -20px 0 #333,

@@ -262,9 +262,13 @@ def page_plot(level:int):
 def page_playground():
     return render_template('./playground/index.html')
 
-@app.route('/try')
-def page_random():
-    return render_template('try.html')
+@app.route('/basic-level')
+def page_basic():
+    return render_template('./levels/basic/index.html')
+
+@app.route('/advance-level')
+def page_advance():
+    return render_template('./levels/advance/index.html')
 
 
 
