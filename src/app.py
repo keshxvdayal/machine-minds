@@ -299,7 +299,6 @@ def page_forum_post(post_id:int):
 
 @app.route('/playground/')
 def page_playground():
-<<<<<<< Updated upstream
     return render_template('./playground/index.html')
 
 @app.route('/basic-level')
@@ -309,9 +308,6 @@ def page_basic():
 @app.route('/advance-level')
 def page_advance():
     return render_template('./levels/advance/index.html')
-=======
-    return render_template('playground/index.html')
->>>>>>> Stashed changes
 
 
 
