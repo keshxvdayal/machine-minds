@@ -302,6 +302,43 @@ body {
 .heading {
 	position: relative;
 	right: 130px;
-	color: #ff5100 !important;
+	color: #ffffff !important;
 }
 
+
+
+.plan-cards{
+	padding: 30px !important;
+}	
+.card{
+	width: 100%;
+	height: 600px;
+}
+.charachter{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: 210px;
+	right: 700px;
+	scale: 1;
+}
+.menu-item{
+	background-color: #28248c;
+	padding: 20px;
+	border-radius: 14px;
+	box-shadow: 4px 4px 0px white;
+	
+}
+.header-link:hover{
+	color: #fffb00;
+
+}
+.pixel-button > strong{
+	width: 100%;
+}
+.paragraph-3{
+	color: black;
+}
+/* .button-hero{
+	padding: 0px 40px;
+} */

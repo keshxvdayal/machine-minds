@@ -1,26 +1,14 @@
-* {
-	margin: 0;
+*{
+	box-sizing: border-box;
 	padding: 0;
+	margin: 0;
 }
-
-html,
-body {
-	height: 100%;
-	width: 100%;
-}
-
-#landing {
-	height: 100%;
+.container-main{
+	background: url("./assets/landscape.png");
 	width: 100vw;
+	height: 100vh;
+	background-size: cover;
 }
-
-.cover-bg {
-	background-color: #68caff !important;
-}
-
-/* ADD YOUR CODE HERE */
-
-/*  */
 
 @keyframes cloud {
 	0% {
@@ -42,17 +30,7 @@ body {
 		transform: translate3d(0, 0, 0);
 	}
 }
-.cloud-1 {
-	animation: cloud 180s linear infinite;
-}
 
-.cloud-2 {
-	animation: cloud 240s linear infinite;
-}
-
-.cloud-3 {
-	animation: cloud 300s linear infinite;
-}
 @media (min-width: 768px) {
 	.cloud-1 {
 		animation: cloud 180s linear infinite;
@@ -67,3 +45,46 @@ body {
 	}
 }
 
+.main-page{
+	/* background-color: antiquewhite; */
+	padding: 30px;
+	position: relative;
+	
+}
+.char-page{
+	margin-top: 255px;
+	width: 100vw;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 0px 300px;
+}
+.main-section{
+	align-items: center;
+	
+}
+.play-tag{
+	position: relative;
+	left: 230px;
+	top: 50px;
+}
+
+.charachter{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: 210px;
+	right: 700px;
+	scale: 1;
+}
+.menu-item{
+	background-color: #f9007d;
+	padding: 20px;
+	border-radius: 14px;
+	box-shadow: 4px 4px 0px white;
+	
+}
+.header-link:hover{
+	color: #fffb00;
+
+}

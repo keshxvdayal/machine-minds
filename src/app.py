@@ -260,7 +260,7 @@ def page_plot(level:int):
 
 @app.route('/playground')
 def page_playground():
-    return render_template('playground.html')
+    return render_template('./playground/index.html')
 
 @app.route('/try')
 def page_random():

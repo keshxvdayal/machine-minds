@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playground</title>
+    <link rel="stylesheet" href="../../static/playground-styles.css">
+    <link href="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/css/pixels-a90552.webflow.045ba9c13.css"
+        rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
 </head>
+
 <body>
-    <div class="container">
-        <h1>Hello world</h1>
+    <div class="cover cover-bg">
+        <div class="container-main">
+            <img src="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/62cedce23075eeefa4391c3d_cloud1.png"
+                class="cloud-1 cloud-1-1" />
+            <img src="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/62cedce23075eeefa4391c3d_cloud1.png"
+                loading="eager" alt="" class="cloud-1 cloud-1-2" /><img
+                src="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/62cedd2a8d68d86bc3433530_cloud3.png"
+                loading="eager" alt="" class="cloud-2 cloud-2-1" /><img
+                src="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/62cedd2a8d68d86bc3433530_cloud3.png"
+                loading="eager" alt="" class="cloud-2 cloud-2-2" /><img
+                src="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/62cedd0333b4d08248813ec8_cloud2.png"
+                loading="eager" alt="" class="cloud-2 cloud-2-3" /><img
+                src="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/62cedd0333b4d08248813ec8_cloud2.png"
+                loading="eager" alt="" class="cloud-3 cloud-3-1" /><img
+                src="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/62cedd0333b4d08248813ec8_cloud2.png"
+                loading="eager" alt="" class="cloud-3 cloud-3-2" />
+                <div class="header">
+                    <div class="actions"><a href="{{url_for('page_login')}}" class="pixel-button"><strong
+                                class="pixel-button-label">Signup /
+                                Login</strong></a></div>
+                    <ul role="list" class="menu w-list-unstyled">
+                        <li class="menu-item"><a href="{{url_for('page_playground')}}" target="_blank" class="header-link">Playground</a></li>
+                        <li class="menu-item"><a href="" target="_blank"
+                                class="header-link">Forum</a></li>
+                        <li class="menu-item"><a href="#" target="_blank" class="header-link">Help Center</a></li>
+                    </ul>
+                </div>
+
+            <div class="main-section">
+                <img src="../../static/assets/logo-play.png" class="play-tag" width="70%" alt="" srcset="">
+                <div class="main-page" id="landing">
+                    <div class="char-page">
+                        <img src="https://media.tenor.com/BUKv6W4RYlwAAAAi/maki-harukawa-maki.gif" alt="" srcset=""
+                            class="image2" style="height:10rem;">
+                        <img src="https://media.tenor.com/TGVhV3buACUAAAAi/danganronpa-v3.gif" loading="lazy"
+                            style="height:10rem;" alt="nahhhh" class="image2" />
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 </body>
+
 </html>
