@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, session, request, jsonify, make_response
+from flask import Flask, render_template, redirect, url_for, session, request, jsonify, make_response,send_from_directory
 from flask_restful import Api, Resource
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -135,10 +135,10 @@ api.add_resource(EndpointSubmitComment, '/api/forum/post-comment')
 @app.route('/')
 def page_index():
     # if not google.authorized: return redirect(url_for('google.login'))
-    
     username = session.get('username')
     email    = session.get('email')
     return render_template('index.html', username=username, email=email)
+
 
 
 
@@ -237,13 +237,6 @@ def page_forum_post(post_id:int):
     return render_template('forum/post.html', post=post, comments=comments)
 
 
-
-@app.route('/playground/')
-def page_playground():
-    return render_template('playground.html')
-
-
-
 @app.route('/plot/level<int:level>/')
 def page_plot(level:int):
     if level == 1:
@@ -265,6 +258,13 @@ def page_plot(level:int):
         plt.close() # Avoid memory leaks
         return response
 
+@app.route('/playground')
+def page_playground():
+    return render_template('playground.html')
+
+@app.route('/try')
+def page_random():
+    return render_template('try.html')
 
 
 
