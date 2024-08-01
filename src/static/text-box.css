@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Peepo';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1760470/Peepo.woff2') format('woff2'),
+        url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1760470/Peepo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arcade';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1760470/Arcade.woff2') format('woff2'),
+        url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1760470/Arcade.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(#7CFEF0, #6BFFB8);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 60px;
+    line-height: 50px;
+    font-family: 'Arcade', sans-serif;
+    padding: 20px 30px 5px 30px;
+    background: #fff;
+    margin: 0;
+    position: relative;
+    perspective: 100px;
+    z-index: 10;
+    perspective-origin: 50% 50%;
+    box-shadow: 
+        -10px 0 #fff,
+        0 -10px #fff,
+        10px 0 #fff,
+        0 10px #fff;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 30px;
+        line-height: 25px;
+    }
+}
+
+#bubble {
+    opacity: 1.0;
+    display: inline-block;
+    max-width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 
+        -20px 0 #333,
+        0 -20px #333,
+        20px 0 #333,
+        0 20px #333,
+        -10px -10px #333,
+        -10px 10px #333,
+        10px 10px #333,
+        10px -10px #333,
+        10px 30px 20px rgba(51, 51, 51, 0.7);
+}
+
+#bubble::before {
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: #fff;
+    position: absolute;
+    bottom: -70px;
+    left: 10%;
+    margin-left: -10px;
+    box-shadow:
+        -10px 0 #333,
+        0 10px #333,
+        -10px 10px #333;
+}
+
+#bubble::after {
+    content: ' ';
+    width: 10px;
+    height: 50px;
+    display: block;
+    background: #fff;
+    position: absolute;
+    bottom: -60px;
+    left: 10%;
+    box-shadow:
+        9px -10px #fff,
+        18px -20px #fff,
+        0 10px #333,
+        10px 0 #333,
+        20px -10px #333,
+        30px -20px #333,
+        -10px 0 #333;
+}
+
+#bubble:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    #bubble {
+        width: 80%;
+    }
+}
