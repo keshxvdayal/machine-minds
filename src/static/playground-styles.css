@@ -62,6 +62,8 @@
 /* Main Section Styles */
 .main-section {
 	align-items: center;
+	/* position: relative; */
+	/* bottom: 70px; */
 }
 
 /* Play Tag Styles */
@@ -177,3 +179,21 @@
 .btn-box-2:hover {
 	cursor: pointer;
 }
+
+.nav-basic{
+    /* width: 200px; */
+    width: 200px;
+    /* margin: 0px 200px; */
+    padding-top: 50px;
+    background-color: rgb(255, 234, 0);
+    padding: 20px;
+	margin: 0px;
+    font-size: 50px;
+    border-radius: 20px 20px 0px 0px;
+	/* position: absolute; */
+  }
+  .nav-basic > strong{
+    font-size: 25px;
+	color:#491a00;
+	text-decoration: none;
+  }

@@ -1,33 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Level</title>
     <link href="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/css/pixels-a90552.webflow.045ba9c13.css"
-    rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='playground/basic.css') }}">
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='playground/basic/basic.css') }}">
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
 </head>
+
 <body>
     <!-- <div class="cover cover-bg"> -->
     <div class="container-main">
+        <a href="{{url_for('page_playground')}}" class="pixel-button button-hero nav-basic">
+            <strong class="pixel-button-label">Go Back</strong></a>
         <div class="section-main">
+        
             <div class="select-level">
                 <div class="textbox">
                     <h2 class="heading-main">SELECT LEVEL</h2>
                 </div>
             </div>
-            <div class="levels">
-                <div class="card">
+        </div>
 
-                </div>
+        <div class="levels">
+            <div class="card">
+                <button class="btn">
+                    <h2>L1</h2>
+                </button>
+            </div>
+            <div class="card">
+                <button class="btn">
+                    <h2>L2</h2>
+                </button>
+            </div>
+            <div class="card">
+                <button class="btn">
+                    <h2>L3</h2>
+                </button>
+            </div>
+            <div class="card">
+                <button class="btn">
+                    <h2>L4</h2>
+                </button>
+            </div>
+            <div class="card">
+                <button class="btn">
+                    <h2>L5</h2>
+                </button>
+            </div>
+            <div class="card">
+                <button class="btn">
+                    <h2>L6</h2>
+                </button>
             </div>
         </div>
-       
+
+
+
     </div>
     <!-- </div> -->
-</div>
+    </div>
 </body>
+
 </html>
