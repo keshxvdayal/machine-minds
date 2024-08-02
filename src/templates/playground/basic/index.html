@@ -18,7 +18,7 @@
         <a href="{{url_for('page_playground')}}" class="pixel-button button-hero nav-basic">
             <strong class="pixel-button-label">Go Back</strong></a>
         <div class="section-main">
-        
+
             <div class="select-level">
                 <div class="textbox">
                     <h2 class="heading-main">SELECT LEVEL</h2>
@@ -28,14 +28,33 @@
 
         <div class="levels">
             <div class="card">
-                <button class="btn">
-                    <h2>L1</h2>
-                </button>
+                <!-- --------------------------------------- -->
+                <div class="popup-link">
+                   
+                        <button class="btn">
+                            <a href="#popup1">
+                            <h2>L1</h2>
+                    </a>
+                    </button>
+                </div>
+                <div id="popup1" class="popup-container">
+                    <div class="popup-content">
+                      <a href="#" class="close">&times;</a>
+                      <h3>CHOOSE</h3>
+                      <a href=""><h2>LEARN</h2></a>
+                      <a href=""><h2>TAKE QUIZ</h2></a>
+                    </div>
+                  </div>
             </div>
+            <!-- -------------------------------------- -->
             <div class="card">
+                <div class="popup-link">
                 <button class="btn">
+                    <a href="#popup1">
                     <h2>L2</h2>
+                    </a>
                 </button>
+                </div>
             </div>
             <div class="card">
                 <button class="btn">
@@ -60,7 +79,7 @@
         </div>
 
     </div>
-    
+
     <!-- </div> -->
     </div>
 </body>
