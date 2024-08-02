@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playground</title>
-    <link rel="stylesheet" href="../../static/playground-styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='playground-styles.css') }}">
     <link href="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/css/pixels-a90552.webflow.045ba9c13.css"
         rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -40,18 +40,18 @@
             </div> -->
 
             <div class="main-section">
-                <img src="../../static/assets/logo-play.png" class="play-tag" width="70%" alt="" srcset="">
+                <img src="{{ url_for('static', filename='assets/logo-play.png') }}" class="play-tag" width="70%" alt="" srcset="">
                 <div class="box-content">
                     <div class="box-section">
                         <div class="box-text">
-                            <img src="../../static/assets/box-1.png" class="box" alt="" srcset="">
+                            <img src="{{ url_for('static', filename='assets/box-1.png') }}" class="box" alt="" srcset="">
                             <div class="box-text-main">
-                                <a href="{{url_for('page_basic')}}" target="_blank" class="btn-box-2">  <h2 class="box-text-main">BASIC</h2> </a>
+                                <a href="{{url_for('page_playground_basic')}}" target="_blank" class="btn-box-2">  <h2 class="box-text-main">BASIC</h2> </a>
                             </div>
                         </div>
-                        <img src="../../static/assets/box-2.png" class="box" alt="" srcset="">
+                        <img src="{{ url_for('static', filename='assets/box-2.png') }}" class="box" alt="" srcset="">
                         <div class="box-text-main-2">
-                            <a href="{{url_for('page_advance')}}" target="_blank" class="btn-box"> <h2 class="box-text-main-2">ADVANCE</h2> </a>
+                            <a href="{{url_for('page_playground_advanced')}}" target="_blank" class="btn-box"> <h2 class="box-text-main-2">ADVANCE</h2> </a>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                 <div class="main-page" id="landing">
                     <div class="char-page">
                         <div class="char-1">
-                            <img src="../../static/assets/subtitle.gif" class="sub" alt="">
+                            <img src="{{ url_for('static', filename='assets/subtitle.gif') }}" class="sub" alt="">
                             <img src="https://media.tenor.com/BUKv6W4RYlwAAAAi/maki-harukawa-maki.gif" loading="lazy"
                                 style="height:10rem;" alt="nahhhh" class="image2" />
                             <!-- <span id="bubble">
@@ -69,14 +69,14 @@
                         <div class="char-2">
                             <img src="https://media.tenor.com/TGVhV3buACUAAAAi/danganronpa-v3.gif" loading="lazy"
                                 style="height:10rem;" alt="nahhhh" class="image2" />
-                            <img src="../../static/assets/subtitle-2.gif" class="sub" alt="">
+                            <img src="{{ url_for('static', filename='assets/subtitle-2.gif') }}" class="sub" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="../../static/playground.js"></script>
+    <script src="{{ url_for('static', filename='playground.js') }}"></script>
 </body>
 
 </html>

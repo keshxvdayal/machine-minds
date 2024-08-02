@@ -357,17 +357,17 @@ def page_playground():
 
 
 @app.route('/playground/basic')
-def page_playground():
+def page_playground_basic():
     return render_template('playground/basic/index.html')
 
 
-@app.route('/playground/advanced')
-def page_playground():
+@app.route('/playground/advanced/')
+def page_playground_advanced():
     return render_template('playground/advanced/index.html')
 
 
 @app.route('/playground/advanced/level<int:level>/')
-def page_playground_advanced(level:int):
+def page_playground_advanced_level(level:int):
     return render_template(f'playground/advanced/{level}.html')
 
 
