@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,9 @@
 
     <script>
         function gen() {
-            let metric      = document.getElementById("metric").value;
+            let metric = document.getElementById("metric").value;
             let n_neighbors = document.getElementById("n_neighbors").value;
-            let randomiser  = new Date().getTime();
+            let randomiser = new Date().getTime();
             var url = `{{url_for('page_plot', level=3)}}?metric=${metric}&n_neighbors=${n_neighbors}&randomiser=${randomiser}&show=True`;
             document.getElementById("plot").src = url;
         }
@@ -20,29 +21,56 @@
 
 
 <body>
-    Please read <a href="{{url_for('page_guide_id', guide_id=4)}}" target="_blank">this</a> guide before proceeding
-    
-    <br><br>
-    Algorithm: K Nearest Neighbours<br>
-    Metric:
-    <select id="metric">
-        <option value="chebyshev">Chebyshev</option>
-        <option value="cosine">Cosine</option>
-        <option value="euclidean" selected>Euclidean (L2)</option>
-        <option value="haversine">Haversine</option>
-        <option value="manhattan">Manhattan (City Block/L1)</option>
-        <option value="minkowski">Minkowski</option>
-        <option value="sqeuclidean">Sqaured Euclidean</option>
-    </select><br>
-    Number of neighbors: <input type="number" id="n_neighbors" value="15" min="2" max="500">
-    
-    <br>
-    <button onclick="gen()">Generate</button>
+    <div class="container-main">
+        <div class="container">
+            <div class="warning">
+                Please read <a href="{{url_for('page_guide_id', guide_id=4)}}" target="_blank">this</a> guide before
+                proceeding
+            </div>
+            <br><br>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Algorithm:
+                    </div>K Nearest Neighbours
+                </div>
+            </div><br>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Metric:
+                    </div>
+                </div>
+           
+            <select class="dropdown" id="metric">
+                <option value="chebyshev">Chebyshev</option>
+                <option value="cosine">Cosine</option>
+                <option value="euclidean" selected>Euclidean (L2)</option>
+                <option value="haversine">Haversine</option>
+                <option value="manhattan">Manhattan (City Block/L1)</option>
+                <option value="minkowski">Minkowski</option>
+                <option value="sqeuclidean">Sqaured Euclidean</option>
+            </select>
+        </div>
+            <br>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+            Number of neighbors:
+                    </div> <input type="number" id="n_neighbors" value="15" min="2" max="500">
+                    </div></div>
+
+            <br>
+            <div class="btn">
+            <button onclick="gen()">Generate</button>
+        </div>
 
 
-    <div id="plot-div">
-        <img id="plot" src="{{ url_for('page_plot', level=3) }}" alt="">
+            <div id="plot-div">
+                <img id="plot" src="{{ url_for('page_plot', level=3) }}" alt="">
+            </div>
+        </div>
     </div>
-
 </body>
+
 </html>

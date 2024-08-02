@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
 
     <script>
         function gen() {
-            let degree     = document.getElementById("degree").value;
+            let degree = document.getElementById("degree").value;
             let randomiser = new Date().getTime();
             var url = `{{url_for('page_plot', level=4)}}?degree=${degree}&randomiser=${randomiser}&show=True`;
             document.getElementById("plot").src = url;
@@ -19,21 +20,55 @@
 
 
 <body>
-    Please read <a href="{{url_for('page_guide_id', guide_id=5)}}" target="_blank">this</a> guide before proceeding
-    <br><br>
-    Algorithm: Support Vector Machines<br>
-    C: 1<br>
-    Gamma: Scale<br>
-    Kernel: Polyonmial<br>
-    Degree: <input type="number" id="degree" value="1" min="1" max="4">
-    
-    <br>
-    <button onclick="gen()">Generate</button>
+    <div class="container-main">
+        <div class="container">
+            <div class="warning">
+                Please read <a href="{{url_for('page_guide_id', guide_id=5)}}" target="_blank">this</a> guide before
+                proceeding
+            </div>
+            <br><br>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Algorithm: </div> Support Vector Machines<br>
+                </div>
+            </div>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        C: </div> 1
+                </div>
+            </div>
+            <br>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Gamma: </div> Scale
+                </div>
+            </div><br>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Kernel: </div> Polyonmial
+                </div>
+            </div><br>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+            Degree: </div> <input type="number" id="degree" value="1" min="1" max="4">
+                </div></div>
+
+            <br>
+            <div class="btn">
+            <button onclick="gen()">Generate</button>
+            </div>
 
 
-    <div id="plot-div">
-        <img id="plot" src="{{ url_for('page_plot', level=4) }}" alt="">
+            <div id="plot-div">
+                <img id="plot" src="{{ url_for('page_plot', level=4) }}" alt="">
+            </div>
+        </div>
     </div>
-
 </body>
+
 </html>
