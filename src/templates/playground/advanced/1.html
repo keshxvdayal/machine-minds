@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='playground/advanced/style.css') }}">
+    <title>Machine Minds</title>
+
+    <script>
+        function gen() {
+            let n_neighbors = document.getElementById("n_neighbors").value;
+            let randomiser  = new Date().getTime();
+            var url = `{{url_for('page_plot', level=1)}}?n_neighbors=${n_neighbors}&randomiser=${randomiser}&show=True`;
+            document.getElementById("plot").src = url;
+        }
+    </script>
+</head>
+
+
+
+<body>
+    Please read <a href="{{url_for('page_guide_id', guide_id=4)}}" target="_blank">this</a> guide before proceeding
+    
+    <br><br>
+    Algorithm: K Nearest Neighbours<br>
+    Metric: Euclidean<br>
+    Number of neighbors: <input type="number" id="n_neighbors" value="2" min="2" max="5">
+    
+    <br>
+    <button onclick="gen()">Generate</button>
+
+
+    <div id="plot-div">
+        <img id="plot" src="{{ url_for('page_plot', level=1) }}" alt="">
+    </div>
+
+</body>
+</html>

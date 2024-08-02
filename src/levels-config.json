@@ -1,0 +1,78 @@
+{
+    "1": {
+        "classifier": "knn",
+        "hyperparameters-fix": {
+            "metric": "euclidean"
+        },
+        "hyperparameters-input": [
+            ["n_neighbors", "int"]
+        ]
+    },
+
+    "2": {
+        "classifier": "knn",
+        "hyperparameters-fix": {
+            "n_neighbors": 10
+        },
+        "hyperparameters-input": [
+            ["metric", "str"]
+        ]
+    },
+
+    "3": {
+        "classifier": "knn",
+        "hyperparameters-fix": {},
+        "hyperparameters-input": [
+            ["metric", "str"],
+            ["n_neighbors", "int"]
+        ]
+    },
+
+    "4": {
+        "classifier": "svm",
+        "hyperparameters-fix": {
+            "C": 1,
+            "gamma": "scale",
+            "kernel": "poly",
+            "probability": true
+        },
+        "hyperparameters-input": [
+            ["degree", "int"]
+        ]
+    },
+
+    "5": {
+        "classifier": "svm",
+        "hyperparameters-fix": {
+            "C": 1,
+            "gamma": "scale",
+            "degree": 2,
+            "probability": true
+        },
+        "hyperparameters-input": [
+            ["kernel", "str"]
+        ]
+    },
+
+    "6": {
+        "classifier": "dtree",
+        "hyperparameters-fix": {
+            "criterion": "gini",
+            "splitter": "best"
+        },
+        "hyperparameters-input": [
+            ["max_depth", "int"]
+        ]
+    },
+
+    "7": {
+        "classifier": "etrees",
+        "hyperparameters-fix": {
+            "criterion": "gini",
+            "max_depth": 20
+        },
+        "hyperparameters-input": [
+            ["n_estimators", "int"]
+        ]
+    }
+}
