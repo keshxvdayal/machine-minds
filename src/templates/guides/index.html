@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Machine Minds | Guides</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/guides.css') }}">
+
 </head>
+
 <body>
+    <button href="{{url_for('page_playground')}}" class="pixel-button button-hero nav-basic">Go Back</button>
+    <!-- <div class="guides"> -->
+    <h1>GUIDES</h1>
+
 
     {% for url,name in guides %}
-        <a target="_blank" href="{{ url }}">{{ name[:-4] }}</a><br>
+
+    <div class="card-column">
+        <div class="card" style="background-image: url('img1.jpg');">
+            <a target="_blank" href="{{ url }}">
+                <p>
+                    {{ name[:-4] }}
+                </p>
+            </a><br>
+        </div>
+
+    </div>
+    </div>
+
+
+
     {% endfor %}
-    
+    <div class="main-g">
+    <div class="graphics">
+    <img src="{{ url_for('static', filename='assets/tree.png') }}" alt="" class="tree">
+    <img src="https://media.tenor.com/TGVhV3buACUAAAAi/danganronpa-v3.gif" loading="lazy" style="height:10rem;"
+        alt="nahhhh" class="char" />
+    </div></div>
+    <img src="../../static/assets/land-main.png" class="land" width="100%" alt="">
+
 </body>
+
 </html>
