@@ -360,7 +360,9 @@ def page_playground():
 def page_playground_basic():
     return render_template('playground/basic/index.html')
 
-
+@app.route('/playground/basic/level<int:level>/')
+def page_playground_basic_level(level:int):
+    return render_template(f'playground/basic/{level}.html')
 
 @app.route('/playground/advanced/')
 def page_playground_advanced():
@@ -374,6 +376,7 @@ def page_playground_advanced_level(level:int):
 @app.route('/playground/creative')
 def page_playground_creative():
     return redirect('https://msr8.pythonanywhere.com')
+
 
 
 @app.route('/plot/level<level>/')
