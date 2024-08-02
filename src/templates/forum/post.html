@@ -4,33 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='forum-style.css')}}">
     <script src="{{ url_for('static', filename='forum/script.js') }}"></script>
-    <title>Document</title>
+    <title>Machine-Minds Forums</title>
 </head>
 
-<body style="background-color: antiquewhite;">
-    <div id="title">{{ post.title }}</div>
-    <hr>
-    <div id="content">{{ post.content }}</div>
+<body>
+    <div class="container-main p-pageWrapper">
+        <div class="p-header">
+            <div class="p-header-logo">
+                <a href="/">
+                    <img src="../../../static/assets/logo-main.png" alt="Logo" link="/">
+                </a>
+            </div>
+        </div>
+        <div class="nav-wrapper">
+            <nav class="navbar">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#">Forums</a>
+                        <ul class="dropdown">
+                            <li><a href="/forum">Forum Home</a></li>
+                            <li><a href="/forum/submit">New Post</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">What's new</a>
+                        <ul class="dropdown">
+                            <li><a href="#">New posts</a></li>
+                            <li><a href="#">New profile posts</a></li>
+                            <li><a href="#">Latest activity</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/playground">Playgrounds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/">Home</a>
+                    </li>
 
-    <br>
-
-    <!-- Make a comment -->
-    <div id="new-comment">
-        <input type="hidden" id="post-id" value="{{ post.post_id }}">
-        <textarea name="comment" id="comment-input" required></textarea>
-        <br>
-        <button onclick="submitComment()">Submit</button>
-    </div>
-
-    <br>
-
-    <!-- Show all comments -->
-    <div id="comments">
-        {% for comment in comments %}
-        <div class="comment">{{comment.author}}: {{comment.content}}</div>
-        <hr>
-        {% endfor %}
+                </ul>
+            </nav>
+        </div>
+        <div class="main-container">
+            <div class="post-wrapper">
+                <div class="welcome-container">
+                    <div class="background-overlay"></div>
+                    <div class="user-container">
+                        <div class="profile-img">
+                            <img src="{{ url_for('page_pfp', username=post.username) }}">
+                        </div>
+                        <div class="user_det">
+                            <div class="user_id">{{post.id}}</div>
+                            <div class="username">{{post.username}}</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <div id="title">{{ post.title }}</div>
+                        <div id="content">{{ post.content }}</div>
+                    </div>
+                    <div id="new-comment">
+                        <input type="hidden" id="post-id" value="{{ post.post_id }}">
+                        <textarea name="comment-textarea" id="comment-input" required></textarea>
+                        <button class="create-post-btn" onclick="submitComment()">Comment</button>
+                    </div>
+                    <div id="comments">
+                        <hr>
+                        {% for comment in comments %}
+                        <div class="comment">{{comment.author}}: {{comment.content}}</div>
+                        <hr>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
