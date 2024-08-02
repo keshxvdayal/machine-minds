@@ -128,7 +128,6 @@ plt.rcParams['figure.facecolor'] = '#00000000'
 
 
 
-
 # -------------------------------------------------------------------------------------------------
 # ---------------------------------------- DATABASE MODELS ----------------------------------------
 # -------------------------------------------------------------------------------------------------
@@ -150,6 +149,15 @@ class ForumComment(db.Model):
     content    = db.Column(db.Text,       nullable=False)
     submitted  = db.Column(db.DateTime,   nullable=False)
     
+class Score(db.Model):
+    email   = db.Column(db.String(200), primary_key=True, nullable=False)
+    level   = db.Column(db.String(20),  primary_key=True, nullable=False)
+    score   = db.Column(db.Float,       nullable=False)
+    answers = db.Column(db.String(200), nullable=False)
+
+
+
+
 
 
 
@@ -174,6 +182,31 @@ api.add_resource(EndpointSubmitComment, '/api/forum/post-comment')
 
 
 
+class ChangeUsername(Resource):
+    def post(self):
+        if not google.authorized: return {'message': 'Not authorized. Please login'}, 401
+
+        username = request.get_json().get('new-username')
+        if not username: return {'message': 'Invalid form data'}, 400
+        # Check if the username is the same lol
+        if session['username'] == username: return {'message': 'You already have this username bruh'}, 400
+        # Check if the username is already taken
+        if User.query.filter_by(username=username).first(): return {'message': 'Username already taken'}, 400
+        # Else, update the username
+        user = db.session.get(User, session['email'])
+        user.username = username
+        db.session.commit()
+        session['username'] = username
+        return {'message': 'Username changed successfully', 'success': True}, 200
+api.add_resource(ChangeUsername, '/api/user/change-username')
+
+
+
+
+
+
+
+
 
 
 # ------------------------------------------------------------------------------------------------
@@ -186,6 +219,7 @@ def page_index():
     username = session.get('username')
     email    = session.get('email')
     return render_template('index.html', username=username, email=email)
+
 
 
 @app.route('/login/')
@@ -235,6 +269,26 @@ def page_logout():
 
 
 
+@app.route('/pfp/<username>')
+def page_pfp(username:str):
+    return redirect(f'https://api.dicebear.com/9.x/pixel-art/svg?seed={username}')
+
+
+
+@app.route('/dashboard/')
+def page_dashboard():
+    if not google.authorized: return redirect(url_for('google.login'))
+    
+    # Basically we have levels like "basic-13" and "advanced-1". Basic levels should always come first and ofc numerical order should be maintained
+    sort_levels = lambda x: x.split('-')
+
+    user   = db.session.get(User, session['email'])
+    scores = db.session.query(Score).filter_by(email=session['email']).all()
+    scores = sorted(scores, key=lambda x: sort_levels(x.level))
+    return render_template('dashboard.html', user=user, scores=scores)
+
+
+
 @app.route('/guides/')
 def page_guides():
     ret = sorted(GUIDES.items())
@@ -258,7 +312,7 @@ def page_forum():
     
     # Join the posts with their authors as to get the username
     clause = User.email == ForumPost.author
-    cols   = [ForumPost.post_id, ForumPost.title, ForumPost.content, ForumPost.submitted, User.username,User.email]
+    cols   = [ForumPost.post_id, ForumPost.title, ForumPost.content, ForumPost.submitted, User.username]
     posts  = ForumPost.query.join(target=User, onclause=clause).add_columns(*cols).order_by(order).all()
     
     print(posts)
@@ -290,7 +344,7 @@ def page_forum_post(post_id:int):
     order    = ForumComment.submitted.desc()
     # Join comments with their authors as to get the username
     clause   = User.email == ForumComment.author
-    cols     = [ForumComment.content, ForumComment.submitted, User.username,User.email]
+    cols     = [ForumComment.content, ForumComment.submitted, User.username]
     comments = comments.join(target=User, onclause=clause).add_columns(*cols).order_by(order).all()
     print(comments)
     return render_template('forum/post.html', post=post, comments=comments)
@@ -299,16 +353,17 @@ def page_forum_post(post_id:int):
 
 @app.route('/playground/')
 def page_playground():
-    return render_template('./playground/index.html')
+    return render_template('playground/index.html')
 
-@app.route('/basic-level')
-def page_basic():
-    return render_template('./levels/basic/index.html')
 
-@app.route('/advance-level')
-def page_advance():
-    return render_template('./levels/advance/index.html')
+@app.route('/playground/basic')
+def page_playground():
+    return render_template('playground/basic/index.html')
 
+
+@app.route('/playground/advanced')
+def page_playground():
+    return render_template('playground/advanced/index.html')
 
 
 @app.route('/playground/advanced/level<int:level>/')
@@ -324,6 +379,7 @@ def page_plot(level:int):
     config    = LEVELS_CONFIG.get(level)
     data      = LEVELS_DATA.get(level)
     data['X'] = MinMaxScaler().fit_transform(data['X'])
+    fix_hyperparameters = config['hyperparameters-fix']
 
     fig, ax = plt.subplots(1,1)
     ax: matplotlib.axes.Axes
@@ -344,12 +400,14 @@ def page_plot(level:int):
     # "show" represents whether to show the decision boundary or not
     if request.args.get('show'):
         # Get the hyperparameters
-        hyperparameters = config['hyperparameters-fix']
+        inp_hyperparameters = {}
+        
         for arg,dtype in config['hyperparameters-input']:
             if not request.args.get(arg): return f'{arg} not provided', 400
-            hyperparameters[arg] = request.args.get(arg)
-            if   dtype == 'int':      hyperparameters[arg] = int(hyperparameters[arg])
-            elif dtype == 'float':    hyperparameters[arg] = float(hyperparameters[arg])
+            inp_hyperparameters[arg] = request.args.get(arg)
+            if   dtype == 'int':      inp_hyperparameters[arg] = int(inp_hyperparameters[arg])
+            elif dtype == 'float':    inp_hyperparameters[arg] = float(inp_hyperparameters[arg])
+        hyperparameters = fix_hyperparameters | inp_hyperparameters
         
         # Make the classifier
         classifier = config['classifier']
@@ -362,12 +420,28 @@ def page_plot(level:int):
         # Fit the classifier
         clf.fit(data['X'], data['Y'])
         # Plot the decision boundary
-        alpha = 0.2 if level not in ['6','7'] else 0.6 # Override for level 6
+        alpha = 0.2 if level not in ['6','7'] else 0.35 # Override for level 6 and 7 (cause hard to see decision boundaries)
         DecisionBoundaryDisplay.from_estimator(clf, data['X'], ax=ax, alpha=alpha, cmap='rainbow')
         # Calculate the log-loss (by testing the classifier on the same data)
         y_pred = clf.predict_proba(data['X'])
         loss   = log_loss(data['Y'], y_pred)
-        ax.set_xlabel(f'Log-loss: {loss:.2f}')
+        loss   = round(loss, 4)
+        ax.set_xlabel(f'Log-loss: {loss}')
+
+        # Save the score
+        answers    = ', '.join([f'{k}={v}' for k,v in inp_hyperparameters.items()])
+        prev_score = db.session.query(Score).filter_by(email=session['email'], level=f'advanced-{level}').first()
+        # If the user hasnt ever submitted a score for this level
+        if not prev_score:
+            score = Score(email=session['email'], level=f'advanced-{level}', score=loss, answers=answers)
+            db.session.add(score)
+            db.session.commit()
+        # If the new score is better than (or same as) the previous one
+        elif loss <= prev_score.score:
+            print(answers)
+            prev_score.score   = loss
+            prev_score.answers = answers
+            db.session.commit()
 
     # Save the output
     img = BytesIO()
@@ -378,9 +452,7 @@ def page_plot(level:int):
     plt.close() # Avoid memory leaks
     return response
 
-@app.route('/pfp/<username>')
-def page_pfp(username:str):
-    return redirect(f'https://api.dicebear.com/9.x/pixel-art/svg?seed={username}')
+
 
 
 

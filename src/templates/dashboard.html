@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <script>
+        function change_username() {
+            let new_username = document.getElementById("new-username").value;
+            
+            let url = '/api/user/change-username';
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({"new-username": new_username}),
+                headers: {'Content-Type': 'application/json'}
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById("username").innerText = new_username;
+                    document.getElementById("new-username").value = "";
+                }
+                alert(data.message);
+            });
+        }
+    </script>
+</head>
+
+
+<body>
+    
+    <h1>Hello <span id="username">{{user.username}}</span></h1>
+
+    Email: {{user.email}}<br>
+
+    <details>
+        <summary>Change username</summary>
+        <form onsubmit="change_username(); return false">
+            <input type="text" id="new-username", name="new-username" placeholder="New username">
+            <button type="submit">Change</button>
+        </form>
+    </details>
+
+    <br>
+
+    (Remember, for advanced levels, a lower score is better :))
+    <br><br>
+
+    <table>
+        <tr>
+            <th>Level</th>
+            <th>Best Score</th>
+            <th>Answers given</th>
+        </tr>
+        {% for score in scores %}
+        <tr>
+            <td>{{score.level}}</td>
+            <td>{{score.score}}</td>
+            <td>{{score.answers}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

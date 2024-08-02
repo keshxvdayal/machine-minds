@@ -9,3 +9,4 @@ python-dotenv
 markdown
 matplotlib
 pygal
+scikit-learn
