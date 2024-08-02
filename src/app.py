@@ -211,7 +211,7 @@ api.add_resource(ChangeUsername, '/api/user/change-username')
 # ---------------------------------------- ROUTES / VIEWS ----------------------------------------
 # ------------------------------------------------------------------------------------------------
 @app.route('/')
-def page_index():    
+def page_index():   
     username = session.get('username')
     email    = session.get('email')
     if google.authorized:
@@ -222,6 +222,28 @@ def page_index():
         text = 'Signup / Login'
 
     return render_template('index.html', username=username, email=email, url=url, text=text)
+
+
+
+@app.route('/pfp/<username>')
+def page_pfp(username:str):
+    return redirect(f'https://api.dicebear.com/9.x/pixel-art/svg?seed={username}')
+
+
+
+@app.route('/dashboard/')
+def page_dashboard():
+    if not google.authorized:
+        session['redirect'] = url_for('page_dashboard')
+        return redirect(url_for('google.login'))
+    
+    # Basically we have levels like "basic-13" and "advanced-1". Basic levels should always come first and ofc numerical order should be maintained
+    sort_levels = lambda x: x.split('-')
+
+    user   = db.session.get(User, session['email'])
+    scores = db.session.query(Score).filter_by(email=session['email']).all()
+    scores = sorted(scores, key=lambda x: sort_levels(x.level))
+    return render_template('dashboard.html', user=user, scores=scores)
 
 
 
@@ -260,7 +282,11 @@ def page_authorized():
     session['email']    = email
     session['username'] = username
 
+    # If needs to redirected anywhere
+    if 'redirect' in session:
+        return redirect(session.pop('redirect'))
     return redirect(url_for('page_index'))
+
 
 
 
@@ -269,26 +295,6 @@ def page_logout():
     if not google.authorized: return render_template('logout-fail.html')
     session.clear()
     return render_template('logout.html')
-
-
-
-@app.route('/pfp/<username>')
-def page_pfp(username:str):
-    return redirect(f'https://api.dicebear.com/9.x/pixel-art/svg?seed={username}')
-
-
-
-@app.route('/dashboard/')
-def page_dashboard():
-    if not google.authorized: return redirect(url_for('google.login'))
-    
-    # Basically we have levels like "basic-13" and "advanced-1". Basic levels should always come first and ofc numerical order should be maintained
-    sort_levels = lambda x: x.split('-')
-
-    user   = db.session.get(User, session['email'])
-    scores = db.session.query(Score).filter_by(email=session['email']).all()
-    scores = sorted(scores, key=lambda x: sort_levels(x.level))
-    return render_template('dashboard.html', user=user, scores=scores)
 
 
 
@@ -301,6 +307,10 @@ def page_guides():
 
 @app.route('/guides/<int:guide_id>/')
 def page_guide_id(guide_id:int):
+    if not google.authorized:
+        session['redirect'] = url_for('page_guide_id', guide_id=guide_id)
+        return redirect(url_for('google.login'))
+    
     if guide_id not in GUIDES: return 'Invalid guide ID', 400
     
     fn = GUIDES[guide_id]
@@ -325,7 +335,9 @@ def page_forum():
 
 @app.route('/forum/submit', methods=['GET', 'POST'])
 def page_forum_submit():
-    if not google.authorized: return redirect(url_for('google.login'))
+    if not google.authorized:
+        session['redirect'] = url_for('page_forum_submit')
+        return redirect(url_for('google.login'))
     
     if request.method == 'POST':
         title   = request.form.get('title')
@@ -365,6 +377,9 @@ def page_playground_basic():
 
 @app.route('/playground/basic/level<int:level>/')
 def page_playground_basic_level(level:int):
+    if not google.authorized:
+        session['redirect'] = url_for('page_playground_basic_level', level=level)
+        return redirect(url_for('google.login'))
     return render_template(f'playground/basic/{level}.html')
 
 @app.route('/playground/advanced/')
@@ -373,6 +388,9 @@ def page_playground_advanced():
 
 @app.route('/playground/advanced/level<int:level>/')
 def page_playground_advanced_level(level:int):
+    if not google.authorized:
+        session['redirect'] = url_for('page_playground_advanced_level', level=level)
+        return redirect(url_for('google.login'))
     return render_template(f'playground/advanced/{level}.html')
 
 @app.route('/playground/creative')
