@@ -1,6 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 * {
 	margin: 0;
 	padding: 0;
+	/* font-family: "Press Start 2P", system-ui;
+	font-weight: 10;
+	font-style: normal; */
+	box-sizing: border-box;
 }
 
 html,
@@ -14,6 +19,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
+	background: #7ab8ff;
 	background-image: url(./assets/bottom_bg5.png), url(./assets/stars3.png),
 		linear-gradient(#072b74, #0e75f0, #0eb6ff, #74f1e9, #ddffd8);
 	background-position: center bottom, center top;
@@ -42,7 +48,7 @@ body {
 /* -------------------------------------------------------------------------------------------------
 --------------------------------------------- Navbar Styles ------------------------------------------------
 ---------------------------------------------------------------------------------------------------- */
-.nav-wrapper {
+/* .nav-wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -53,7 +59,6 @@ body {
 	margin: 0 4rem;
 	position: sticky;
 	top: 0;
-	color: white;
 	z-index: 10;
 }
 .navbar {
@@ -62,6 +67,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color: #ffaf00;
 }
 .nav-menu {
 	display: flex;
@@ -122,8 +128,92 @@ body {
 	content: "\1F50D";
 	margin-left: 5px;
 	font-size: 16px;
+} */
+
+.navbar {
+	background-color: #ffe4a0; /* Nav bar background color */
+	padding: 10px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	position: relative;
+	z-index: 10;
 }
 
+.nav-menu {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.nav-item {
+	position: relative;
+}
+
+.nav-item a {
+	color: #0d3163;
+	font-weight: bold;
+	padding: 10px 15px;
+	display: block;
+	transition: background-color 0.3s;
+	border-radius: 5px;
+}
+
+.nav-item a:hover {
+	background-color: #ffd586; /* Hover effect */
+}
+
+.dropdown {
+	display: none;
+	position: absolute;
+	background-color: #ffe4a0; /* Dropdown background color */
+	min-width: 150px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+	border-radius: 4px;
+	top: 100%;
+	left: 0;
+}
+
+.dropdown li {
+	width: 100%;
+}
+
+.dropdown li a {
+	padding: 10px 15px;
+	color: #0d3163;
+}
+
+.nav-item:hover .dropdown {
+	display: block;
+}
+
+.nav-item.login a,
+.nav-item.register a,
+.nav-item.search a {
+	background-color: #3163a0; /* Button background */
+	color: #ffffff;
+	border-radius: 5px;
+}
+
+.nav-item.login a:hover,
+.nav-item.register a:hover,
+.nav-item.search a:hover {
+	background-color: #254e7a; /* Button hover effect */
+}
+
+.nav-item.search a {
+	display: flex;
+	align-items: center;
+}
+
+.nav-item.search a::after {
+	content: "\1F50D"; /* Unicode for magnifying glass */
+	margin-left: 5px;
+	font-size: 16px;
+}
 /* -------------------------------------------------------------------------------------------------
 --------------------------------------------- Main Body ------------------------------------------------
 ---------------------------------------------------------------------------------------------------- */
@@ -137,7 +227,7 @@ body {
 	position: relative;
 }
 .post-wrapper {
-	width: 90%;
+	width: 0%;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -152,11 +242,14 @@ body {
 	padding: 1rem 2rem;
 	text-decoration: none;
 	color: rgba(0, 0, 0);
-	overflow: hidden; /* Ensure the overlay doesn't overflow the container */
+	overflow: hidden;
 }
 .post-container:hover {
 	background-color: #f0f0f0;
 }
+/* -------------------------------------------------------------------------------------------------
+---------------------------------------------Welcome Post-------------------------------------------
+---------------------------------------------------------------------------------------------------- */
 .welcome-container {
 	position: relative;
 	z-index: 2;
@@ -164,10 +257,18 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	gap: 0.5rem;
-	padding: 1rem 2rem;
+	padding: 1rem 4rem;
 	text-decoration: none;
 	color: rgba(0, 0, 0);
 	overflow: hidden; /* Ensure the overlay doesn't overflow the container */
+}
+.welcome-container:hover {
+	background-color: #f0f0f0;
+}
+.welcome-container h1 {
+	text-align: center;
+	font-family: "Press Start 2P", system-ui;
+	font-size: 1rem;
 }
 
 .background-overlay {
@@ -183,6 +284,7 @@ body {
 	z-index: -1; /* Ensure the overlay is behind the content */
 }
 .create-post-btn {
+	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -192,7 +294,9 @@ body {
 	border-radius: 4px;
 	text-decoration: none;
 }
-
+/* -------------------------------------------------------------------------------------------------
+--------------------------------------------- Posts ------------------------------------------------
+---------------------------------------------------------------------------------------------------- */
 .post-container a {
 	z-index: 2;
 	display: flex;
@@ -210,6 +314,8 @@ body {
 	border: 1px solid rgb(255, 255, 255);
 }
 .user-container {
+	font-style: bold;
+	padding: 0 0 0 0.5rem;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1rem;
@@ -226,10 +332,17 @@ body {
 	height: 100%;
 	border-radius: 50%;
 }
+.post-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
 #title {
 	color: #0d3163;
-	font-size: 1.1rem;
 	font-weight: bold;
 	border-bottom: 1px solid #0d3163;
+	font-family: "Press Start 2P", system-ui;
+	font-size: 0.8rem;
+	padding-bottom: 0.5rem;
 }
 

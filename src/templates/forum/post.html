@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{{ url_for('static', filename='forum/script.js') }}"></script>
     <title>Document</title>
 </head>
-<body>
+
+<body style="background-color: antiquewhite;">
     <div id="title">{{ post.title }}</div>
     <hr>
     <div id="content">{{ post.content }}</div>
@@ -20,15 +22,16 @@
         <br>
         <button onclick="submitComment()">Submit</button>
     </div>
-    
+
     <br>
 
     <!-- Show all comments -->
     <div id="comments">
         {% for comment in comments %}
-            <div class="comment">{{comment.author}}: {{comment.content}}</div>
-            <hr>
+        <div class="comment">{{comment.author}}: {{comment.content}}</div>
+        <hr>
         {% endfor %}
     </div>
 </body>
+
 </html>
