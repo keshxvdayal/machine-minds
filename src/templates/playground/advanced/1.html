@@ -8,11 +8,11 @@
     <title>Machine Minds</title>
 
     <script>
-        function gen() {
-            let n_neighbors = document.getElementById("n_neighbors").value;
+        function gen () {
+            let n_neighbors = document.getElementById( "n_neighbors" ).value;
             let randomiser = new Date().getTime();
-            var url = `{{url_for('page_plot', level=1)}}?n_neighbors=${n_neighbors}&randomiser=${randomiser}&show=True`;
-            document.getElementById("plot").src = url;
+            var url = `{{url_for('page_plot', level=1)}}?n_neighbors=${ n_neighbors }&randomiser=${ randomiser }&show=True`;
+            document.getElementById( "plot" ).src = url;
         }
     </script>
 </head>
@@ -33,13 +33,16 @@
                 <div class="sec-1">
                     <div class="mono">
                         Algorithm:
-                    </div> K Nearest Neighbours<br>
+                    </div> K Nearest Neighbours <br>
                 </div>
+            </div>
+            <div class="algorithm">
                 <div class="sec-1">
                     <div class="mono">
-                        Metric:
-                    </div>Euclidean<br>
+                        Metric: </div> Euclidean <br>
                 </div>
+            </div>
+            <div class="algorithm">
                 <div class="sec-1">
                     <div class="mono">
                         Number of neighbors:
@@ -52,13 +55,9 @@
             <div class="btn">
                 <button onclick="gen()">Generate</button>
             </div>
-
-
             <div id="plot-div">
                 <img id="plot" src="{{ url_for('page_plot', level=1) }}" alt="">
             </div>
-        </div>
-    </div>
 </body>
 
 </html>
