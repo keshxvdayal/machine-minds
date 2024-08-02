@@ -18,44 +18,63 @@
         <a href="{{url_for('page_playground')}}" class="pixel-button button-hero nav-basic">
             <strong class="pixel-button-label">Go Back</strong></a>
         <div class="section-main">
-        
+
             <div class="select-level">
                 <div class="textbox">
                     <h2 class="heading-main">SELECT LEVEL</h2>
                 </div>
             </div>
         </div>
-
         <div class="levels">
             <div class="card">
-                <button class="btn">
-                    <h2>L1</h2>
-                </button>
+                <a href="{{url_for('page_playground_advanced_level',level=1)}}">
+                    <button class="btn">
+                        <h2>L1</h2>
+                    </button>
+                </a>
             </div>
             <div class="card">
-                <button class="btn">
-                    <h2>L2</h2>
-                </button>
+                <a href="{{url_for('page_playground_advanced_level',level=2)}}">
+                    <button class="btn">
+                        <h2>L2</h2>
+                    </button>
+                </a>
             </div>
             <div class="card">
-                <button class="btn">
-                    <h2>L3</h2>
-                </button>
+                <a href="{{url_for('page_playground_advanced_level',level=3)}}">
+                    <button class="btn">
+                        <h2>L3</h2>
+                    </button>
+                </a>
             </div>
             <div class="card">
-                <button class="btn">
-                    <h2>L4</h2>
-                </button>
+                <<a href="{{url_for('page_playground_advanced_level',level=4)}}">
+                    <button class="btn">
+                        <h2>L4</h2>
+                    </button>
+                    </a>
+            </div>
+
+            <div class="card">
+                <a href="{{url_for('page_playground_advanced_level',level=5)}}">
+                    <button class="btn">
+                        <h2>L5</h2>
+                    </button>
+                </a>
             </div>
             <div class="card">
-                <button class="btn">
-                    <h2>L5</h2>
-                </button>
+                <a href="{{url_for('page_playground_advanced_level',level=6)}}">
+                    <button class="btn">
+                        <h2>L6</h2>
+                    </button>
+                </a>
             </div>
             <div class="card">
-                <button class="btn">
-                    <h2>L6</h2>
-                </button>
+                <a href="{{url_for('page_playground_advanced_level',level=7)}}">
+                    <button class="btn">
+                        <h2>L7</h2>
+                    </button>
+                </a>
             </div>
         </div>
 

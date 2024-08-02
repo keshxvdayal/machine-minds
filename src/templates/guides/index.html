@@ -10,10 +10,9 @@
 </head>
 
 <body>
-    <button href="{{url_for('page_playground')}}" class="pixel-button button-hero nav-basic">Go Back</button>
-    <!-- <div class="guides"> -->
-    <h1>GUIDES</h1>
+    <button onclick="location.href = '/';" class="pixel-button button-hero nav-basic">Go Back</button>
 
+    <h1>GUIDES</h1>
 
     {% for url,name in guides %}
 
@@ -33,11 +32,12 @@
 
     {% endfor %}
     <div class="main-g">
-    <div class="graphics">
-    <img src="{{ url_for('static', filename='assets/tree.png') }}" alt="" class="tree">
-    <img src="https://media.tenor.com/TGVhV3buACUAAAAi/danganronpa-v3.gif" loading="lazy" style="height:10rem;"
-        alt="nahhhh" class="char" />
-    </div></div>
+        <div class="graphics">
+            <img src="{{ url_for('static', filename='assets/tree.png') }}" alt="" class="tree">
+            <img src="https://media.tenor.com/TGVhV3buACUAAAAi/danganronpa-v3.gif" loading="lazy" style="height:10rem;"
+                alt="nahhhh" class="char" />
+        </div>
+    </div>
     <img src="../../static/assets/land-main.png" class="land" width="100%" alt="">
 
 </body>

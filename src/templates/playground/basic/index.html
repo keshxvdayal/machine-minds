@@ -7,7 +7,13 @@
     <title>Basic Level</title>
     <link href="https://cdn.prod.website-files.com/62be13fdb8a06d0f7cf4aa7b/css/pixels-a90552.webflow.045ba9c13.css"
         rel="stylesheet" type="text/css" />
+
+    <!-- Main styles and scripts -->
     <link rel="stylesheet" href="{{ url_for('static', filename='playground/basic/basic.css') }}">
+    <!-- <link rel="stylesheet" href="{{url_for('static',filename='playground/basic/popup-style.css')}}"> -->
+    <!-- <script src="{{url_for('static',filename='playground/basic/popup-script.js')}}"></script> -->
+
+    <!-- fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
 </head>
@@ -18,69 +24,144 @@
         <a href="{{url_for('page_playground')}}" class="pixel-button button-hero nav-basic">
             <strong class="pixel-button-label">Go Back</strong></a>
         <div class="section-main">
-
             <div class="select-level">
                 <div class="textbox">
                     <h2 class="heading-main">SELECT LEVEL</h2>
                 </div>
             </div>
         </div>
-
         <div class="levels">
             <div class="card">
-                <!-- --------------------------------------- -->
                 <div class="popup-link">
-                   
-                        <button class="btn">
-                            <a href="#popup1">
+                    <button class="btn">
+                        <a href="#popup1">
                             <h2>L1</h2>
-                    </a>
+                        </a>
                     </button>
                 </div>
                 <div id="popup1" class="popup-container">
                     <div class="popup-content">
-                      <a href="#" class="close">&times;</a>
-                      <h3>CHOOSE</h3>
-                      <a href=""><h2>LEARN</h2></a>
-                      <a href=""><h2>TAKE QUIZ</h2></a>
+                        <a href="#" class="close">&times;</a>
+                        <h3>CHOOSE</h3>
+                        <a href="{{ url_for('static', filename='guides/0) Theory.pdf')}}">
+                            <h2>LEARN</h2>
+                        </a>
+                        <a href="">
+                            <h2>TAKE QUIZ</h2>
+                        </a>
                     </div>
-                  </div>
-            </div>
-            <!-- -------------------------------------- -->
-            <div class="card">
-                <div class="popup-link">
-                <button class="btn">
-                    <a href="#popup1">
-                    <h2>L2</h2>
-                    </a>
-                </button>
                 </div>
             </div>
             <div class="card">
-                <button class="btn">
-                    <h2>L3</h2>
-                </button>
+                <div class="popup-link">
+                    <button class="btn">
+                        <a href="#popup2">
+                            <h2>L2</h2>
+                        </a>
+                    </button>
+                </div>
+                <div id="popup2" class="popup-container">
+                    <div class="popup-content">
+                        <a href="#" class="close">&times;</a>
+                        <h3>CHOOSE</h3>
+                        <a href="{{ url_for('static', filename='guides/1) Regression.pdf')}}">
+                            <h2>LEARN</h2>
+                        </a>
+                        <a href="">
+                            <h2>TAKE QUIZ</h2>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="card">
-                <button class="btn">
-                    <h2>L4</h2>
-                </button>
+                <div class="popup-link">
+
+                    <button class="btn">
+                        <a href="#popup3">
+                            <h2>L3</h2>
+                        </a>
+                    </button>
+                </div>
+                <div id="popup3" class="popup-container">
+                    <div class="popup-content">
+                        <a href="#" class="close">&times;</a>
+                        <h3>CHOOSE</h3>
+                        <a href="{{ url_for('static', filename='guides/2) Logistic Regression.pdf')}}">
+                            <h2>LEARN</h2>
+                        </a>
+                        <a href="">
+                            <h2>TAKE QUIZ</h2>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="card">
-                <button class="btn">
-                    <h2>L5</h2>
-                </button>
+                <div class="popup-link">
+
+                    <button class="btn">
+                        <a href="#popup4">
+                            <h2>L4</h2>
+                        </a>
+                    </button>
+                </div>
+                <div id="popup4" class="popup-container">
+                    <div class="popup-content">
+                        <a href="#" class="close">&times;</a>
+                        <h3>CHOOSE</h3>
+                        <a href="{{ url_for('static', filename='guides/3) Classification.pdf')}}">
+                            <h2>LEARN</h2>
+                        </a>
+                        <a href="">
+                            <h2>TAKE QUIZ</h2>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="card">
-                <button class="btn">
-                    <h2>L6</h2>
-                </button>
+                <div class="popup-link">
+
+                    <button class="btn">
+                        <a href="#popup5">
+                            <h2>L5</h2>
+                        </a>
+                    </button>
+                </div>
+                <div id="popup5" class="popup-container">
+                    <div class="popup-content">
+                        <a href="#" class="close">&times;</a>
+                        <h3>CHOOSE</h3>
+                        <a href="{{ url_for('static', filename='guides/4) KNN.pdf')}}">
+                            <h2>LEARN</h2>
+                        </a>
+                        <a href="">
+                            <h2>TAKE QUIZ</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="popup-link">
+
+                    <button class="btn">
+                        <a href="#popup6">
+                            <h2>L6</h2>
+                        </a>
+                    </button>
+                </div>
+                <div id="popup6" class="popup-container">
+                    <div class="popup-content">
+                        <a href="#" class="close">&times;</a>
+                        <h3>CHOOSE</h3>
+                        <a href="{{ url_for('static', filename='guides/5) SVM.pdf')}}">
+                            <h2>LEARN</h2>
+                        </a>
+                        <a href="">
+                            <h2>TAKE QUIZ</h2>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
-    </div>
-
-    <!-- </div> -->
     </div>
 </body>
 
