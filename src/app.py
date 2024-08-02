@@ -8,15 +8,13 @@ import matplotlib.backends
 from oauthlib.oauth2.rfc6749.errors import TokenExpiredError
 from requests.models import Response
 
-from sklearn.datasets import make_circles, make_moons, make_classification
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.inspection import DecisionBoundaryDisplay
 from sklearn.metrics import log_loss
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
-from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 
 
 from matplotlib import pyplot as plt
@@ -213,12 +211,17 @@ api.add_resource(ChangeUsername, '/api/user/change-username')
 # ---------------------------------------- ROUTES / VIEWS ----------------------------------------
 # ------------------------------------------------------------------------------------------------
 @app.route('/')
-def page_index():
-    # if not google.authorized: return redirect(url_for('google.login'))
-    
+def page_index():    
     username = session.get('username')
     email    = session.get('email')
-    return render_template('index.html', username=username, email=email)
+    if google.authorized:
+        url  = url_for('page_dashboard')
+        text = 'Dashboard'
+    else:
+        url  = url_for('google.login')
+        text = 'Signup / Login'
+
+    return render_template('index.html', username=username, email=email, url=url, text=text)
 
 
 
@@ -367,7 +370,6 @@ def page_playground_basic_level(level:int):
 @app.route('/playground/advanced/')
 def page_playground_advanced():
     return render_template('playground/advanced/index.html')
-
 
 @app.route('/playground/advanced/level<int:level>/')
 def page_playground_advanced_level(level:int):
