@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
     <title>Dashboard</title>
 
     <script>
@@ -29,38 +30,42 @@
 
 
 <body>
-    
-    <h1>Hello <span id="username">{{user.username}}</span></h1>
-
-    Email: {{user.email}}<br>
-
-    <details>
-        <summary>Change username</summary>
-        <form onsubmit="change_username(); return false">
-            <input type="text" id="new-username", name="new-username" placeholder="New username">
-            <button type="submit">Change</button>
-        </form>
-    </details>
-
-    <br>
-
-    (Remember, for advanced levels, a lower score is better :))
-    <br><br>
-
-    <table>
-        <tr>
-            <th>Level</th>
-            <th>Best Score</th>
-            <th>Answers given</th>
-        </tr>
-        {% for score in scores %}
-        <tr>
-            <td>{{score.level}}</td>
-            <td>{{score.score}}</td>
-            <td>{{score.answers}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-
+    <div class="container">
+        <h1>Hello <span id="username">{{user.username}}</span></h1>
+        <p>Email: {{user.email}}</p>
+        <details>
+            <summary>Change username</summary>
+            <form onsubmit="change_username(); return false">
+                <input type="text" id="new-username" name="new-username" placeholder="New username">
+                <button type="submit">Change</button>
+            </form>
+        </details>
+        <p>(Remember, for advanced levels, a lower score is better :))</p>
+        <table>
+            <tr>
+                <th>Level</th>
+                <th>Best Score</th>
+                <th>Answers given</th>
+            </tr>
+            {% for score in scores %}
+            <tr>
+                <td>{{score.level}}</td>
+                <td>{{score.score}}</td>
+                <td>{{score.answers}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <script>
+        function change_username() {
+            const newUsername = document.getElementById('new-username').value;
+            if (newUsername) {
+                document.getElementById('username').textContent = newUsername;
+                alert('Username changed to ' + newUsername);
+            } else {
+                alert('Please enter a new username');
+            }
+        }
+    </script>
 </body>
 </html>
