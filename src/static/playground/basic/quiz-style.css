@@ -1,0 +1,134 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+.container {
+	background-color: #fff5c9;
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas:
+		"sidebar header"
+		"sidebar main-content"
+		"sidebar main-content"
+		"sidebar footer";
+	height: 100vh;
+	padding: 10px;
+	border: 1px solid #000;
+}
+
+.menu {
+	grid-area: menu;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.menu button {
+	background-color: #7d9369;
+	border: 3px solid #000;
+	padding: 10px 20px;
+	font-size: 14px;
+	cursor: pointer;
+	box-shadow: 2px 2px #000;
+	text-transform: uppercase;
+}
+.header {
+	grid-area: header;
+	display: flex;
+	justify-content: space-between;
+	padding: 2rem;
+	align-items: center;
+	border-bottom: 3px solid black;
+}
+
+.sidebar {
+	grid-area: sidebar;
+	padding: 10rem 5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 4rem;
+	/* background-color: blue; */
+	border-right: 3px solid black;
+}
+
+.sidebar button {
+	transform: scale(1.5);
+	background-color: #fff;
+	border: 3px solid #000;
+	padding: 5px 15px;
+	font-size: 12px;
+	cursor: pointer;
+	box-shadow: 2px 2px #000;
+	text-transform: uppercase;
+}
+
+.main-content {
+	grid-area: main-content;
+	padding: 20px;
+	/* border: 2px solid #000; */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.question {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #000;
+}
+
+.user-info {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.user-info img {
+	width: 40px;
+	height: 40px;
+	image-rendering: pixelated;
+}
+
+.answers {
+	padding: 20px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.answers div {
+	font-size: 16px;
+}
+
+.nav-buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 20px;
+}
+
+.nav-buttons button {
+	background-color: #fff;
+	border: 3px solid #000;
+	padding: 5px 20px;
+	font-size: 14px;
+	cursor: pointer;
+	box-shadow: 2px 2px #000;
+	text-transform: uppercase;
+}
+
+.hearts {
+	font-size: 18px;
+	color: red;
+}
+

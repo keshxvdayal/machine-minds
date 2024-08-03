@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,11 @@
     <title>Machine Minds</title>
 
     <script>
-        function gen() {
-            let max_depth   = document.getElementById("max-depth").value;
+        function gen () {
+            let max_depth = document.getElementById( "max-depth" ).value;
             let randomiser = new Date().getTime();
-            var url = `{{url_for('page_plot', level=6)}}?max_depth=${max_depth}&randomiser=${randomiser}&show=True`;
-            document.getElementById("plot").src = url;
+            var url = `{{url_for('page_plot', level=6)}}?max_depth=${ max_depth }&randomiser=${ randomiser }&show=True`;
+            document.getElementById( "plot" ).src = url;
         }
     </script>
 </head>
@@ -19,21 +20,47 @@
 
 
 <body>
-    Please read <a href="{{url_for('page_guide_id', guide_id=6)}}" target="_blank">this</a> guide before proceeding
+    <div class="container-main">
+        <div class="container">
+            <div class="warning">
+                Please read <a href="{{url_for('page_guide_id', guide_id=6)}}" target="_blank">this</a> guide before
+                proceeding
+            </div>
+            <br><br>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Algorithm:</div> Decision Tree<br>
+                </div>
+            </div>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Criterion: </div>
+                    Gini<br>
+                </div>
+            </div>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Splitter: </div> Best<br>
+                </div>
+            </div>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Max Depth:</div> <input type="number" id="max-depth" value="5" min="1" max="30"><br>
+                </div>
+            </div>
+            <br>
+            <div class="btn">
+                <button onclick="gen()">Generate</button>
+            </div>
 
-    <br><br>
-    Algorithm: Decision Tree<br>
-    Criterion: Gini<br>
-    Splitter: Best<br>
-    Max Depth: <input type="number" id="max-depth" value="5" min="1" max="30"><br>
-    
-    <br>
-    <button onclick="gen()">Generate</button>
-
-
-    <div id="plot-div">
-        <img id="plot" src="{{ url_for('page_plot', level=6) }}" alt="">
-    </div>
+            <div id="plot-div">
+                <img id="plot" src="{{ url_for('page_plot', level=6) }}" alt="">
+            </div>
 
 </body>
+
 </html>

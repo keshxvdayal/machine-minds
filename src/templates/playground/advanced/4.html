@@ -8,11 +8,11 @@
     <title>Machine Minds</title>
 
     <script>
-        function gen() {
-            let degree = document.getElementById("degree").value;
+        function gen () {
+            let degree = document.getElementById( "degree" ).value;
             let randomiser = new Date().getTime();
-            var url = `{{url_for('page_plot', level=4)}}?degree=${degree}&randomiser=${randomiser}&show=True`;
-            document.getElementById("plot").src = url;
+            var url = `{{url_for('page_plot', level=4)}}?degree=${ degree }&randomiser=${ randomiser }&show=True`;
+            document.getElementById( "plot" ).src = url;
         }
     </script>
 </head>
@@ -55,12 +55,12 @@
             <div class="algorithm">
                 <div class="sec-1">
                     <div class="mono">
-            Degree: </div> <input type="number" id="degree" value="1" min="1" max="4">
-                </div></div>
-
+                        Degree: </div> <input type="number" id="degree" value="1" min="1" max="4">
+                </div>
+            </div>
             <br>
             <div class="btn">
-            <button onclick="gen()">Generate</button>
+                <button onclick="gen()">Generate</button>
             </div>
 
 

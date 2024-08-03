@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,11 @@
     <title>Machine Minds</title>
 
     <script>
-        function gen() {
-            let kernel     = document.getElementById("kernel").value;
+        function gen () {
+            let kernel = document.getElementById( "kernel" ).value;
             let randomiser = new Date().getTime();
-            var url = `{{url_for('page_plot', level=5)}}?kernel=${kernel}&randomiser=${randomiser}&show=True`;
-            document.getElementById("plot").src = url;
+            var url = `{{url_for('page_plot', level=5)}}?kernel=${ kernel }&randomiser=${ randomiser }&show=True`;
+            document.getElementById( "plot" ).src = url;
         }
     </script>
 </head>
@@ -19,28 +20,67 @@
 
 
 <body>
-    Please read <a href="{{url_for('page_guide_id', guide_id=5)}}" target="_blank">this</a> guide before proceeding
+    <div class="container-main">
+        <div class="container">
+            <div class="warning">
+                Please read <a href="{{url_for('page_guide_id', guide_id=5)}}" target="_blank">this</a> guide before
+                proceeding
+            </div>
+            <br><br>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Algorithm: </div> Support Vector Machines<br>
+                </div>
+            </div>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        C: </div> 1
+                </div>
+            </div>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        C: </div> 1
+                </div>
+            </div>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Gamma: </div> Scale
+                </div>
+            </div>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Degree: </div> 2
+                </div>
+            </div>
+            <div class="algorithm">
+                <div class="sec-1">
+                    <div class="mono">
+                        Kernel: </div>
+                </div>
+                <select class="dropdown" id="kernel" onchange="onchange_mhd_svm_kernel()">
+                    <option value="linear">Linear</option>
+                    <option value="poly">Polynomial</option>
+                    <option value="rbf">Radial Basis Function (RBF)</option>
+                    <option value="sigmoid">Sigmoid</option>
+                </select>
+            </div><br>
 
-    <br><br>
-    Algorithm: Support Vector Machines<br>
-    C: 1<br>
-    Gamma: Scale<br>
-    Degree: 2 <br>
-    Kernel:
-    <select id="kernel" onchange="onchange_mhd_svm_kernel()">
-        <option value="linear">Linear</option>
-        <option value="poly">Polynomial</option>
-        <option value="rbf">Radial Basis Function (RBF)</option>
-        <option value="sigmoid">Sigmoid</option>
-    </select>
-    
-    <br>
-    <button onclick="gen()">Generate</button>
+
+            <br>
+            <div class="btn">
+                <button onclick="gen()">Generate</button>
+            </div>
 
 
-    <div id="plot-div">
-        <img id="plot" src="{{ url_for('page_plot', level=5) }}" alt="">
-    </div>
+            <div id="plot-div">
+                <img id="plot" src="{{ url_for('page_plot', level=5) }}" alt="">
+            </div>
 
 </body>
+
 </html>

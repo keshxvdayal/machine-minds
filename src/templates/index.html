@@ -59,9 +59,9 @@
             <ul role="list" class="menu w-list-unstyled"></ul><a href="/" aria-current="page"
                 class="w-inline-block w--current"><img src="{{ url_for('static', filename='assets/logo-main.png') }}"
                     loading="eager" width="375" alt="" class="logo" /></a>
-            <div class="actions"><a href="{{url_for('page_login')}}" class="pixel-button"><strong
-                        class="pixel-button-label">Signup /
-                        Login</strong></a></div>
+            <div class="actions"><a href="{{url}}" class="pixel-button"><strong class="pixel-button-label">
+                {{text}}
+            </strong></a></div>
             <ul role="list" class="menu w-list-unstyled">
                 <li class="menu-item"><a href="{{url_for('page_playground')}}" target="_blank"
                         class="header-link">Playground</a></li>
