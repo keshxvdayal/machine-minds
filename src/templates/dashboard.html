@@ -30,7 +30,10 @@
 
 
 <body>
+    <button onclick="location.href = '/';" class="pixel-button button-hero nav-basic">Go Back</button>
     <div class="container">
+        <img src="https://cdn.pixabay.com/animation/2024/04/14/02/43/02-43-38-360_512.gif" loading="lazy"
+                            alt="" class="image-17" />
         <h1>Hello <span id="username">{{user.username}}</span></h1>
         <p>Email: {{user.email}}</p>
         <details>
@@ -56,6 +59,7 @@
             {% endfor %}
         </table>
     </div>
+    
     <script>
         function change_username() {
             const newUsername = document.getElementById('new-username').value;
