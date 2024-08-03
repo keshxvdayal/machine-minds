@@ -1,6 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Mono&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@font-face {
+	font-family: "monocraft";
+	src: url("../../assets/Monocraft.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
 * {
 	margin: 0;
 	padding: 0;
+	font-family: "monocraft";
 }
 
 html,
@@ -24,21 +33,34 @@ body {
 }
 
 .menu {
+	background: url("../../assets/quiz-menu.png");
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-size: contain;
 	grid-area: menu;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 }
 
-.menu button {
-	background-color: #7d9369;
+.menu a {
+	background: url("../../assets/quiz-menu.png") no-repeat center center;
+	background-size: contain;
 	border: 3px solid #000;
-	padding: 10px 20px;
+	width: 100px; /* Set the width to match the image */
+	height: 100px; /* Set the height to match the image */
 	font-size: 14px;
 	cursor: pointer;
 	box-shadow: 2px 2px #000;
 	text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none; /* Ensure the text is centered */
+	color: #000; /* Set text color */
 }
+
 .header {
 	grid-area: header;
 	display: flex;
@@ -86,6 +108,8 @@ body {
 	align-items: center;
 	padding-bottom: 20px;
 	border-bottom: 1px solid #000;
+	font-style: bold;
+	font-size: 2rem;
 }
 
 .user-info {

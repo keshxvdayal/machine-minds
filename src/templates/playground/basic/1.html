@@ -20,11 +20,11 @@
     <div class="container">
         <div class="header">
             <div class="menu">
-                <button>MENU</button>
+                <a href="/playground/basic"></a>
             </div>
             <div class="user-info">
-                <img src="avatar.png" alt="User Avatar">
-                <span>USERNAME</span>
+                <img src="{{url_for('page_pfp',username=session['username'])}}" alt="User Avatar">
+                <span>{{session['username']}}</span>
                 <div class="hearts">❤️❤️❤️❤️❤️</div>
             </div>
         </div>
@@ -34,7 +34,6 @@
             <button>Question 3</button>
             <button>Question 4</button>
             <button>Question 5</button>
-            <div class="cactus"></div>
         </div>
         <div class="main-content">
             <div class="question">
