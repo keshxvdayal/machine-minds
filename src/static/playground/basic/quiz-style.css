@@ -12,6 +12,17 @@
 	font-family: "monocraft";
 }
 
+.selected {
+	background-color: #f5f5f5;
+}
+
+.green {
+	background-color: green;
+}
+.red {
+	background-color: red;
+}
+
 html,
 body {
 	height: 100%;
@@ -26,39 +37,9 @@ body {
 		"sidebar header"
 		"sidebar main-content"
 		"sidebar main-content"
-		"sidebar footer";
+		"footer footer";
 	height: 100vh;
-	padding: 10px;
 	border: 1px solid #000;
-}
-
-.menu {
-	background: url("../../assets/quiz-menu.png");
-	width: 100px;
-	height: 100px;
-	background-repeat: no-repeat;
-	background-size: contain;
-	grid-area: menu;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
-
-.menu a {
-	background: url("../../assets/quiz-menu.png") no-repeat center center;
-	background-size: contain;
-	border: 3px solid #000;
-	width: 100px; /* Set the width to match the image */
-	height: 100px; /* Set the height to match the image */
-	font-size: 14px;
-	cursor: pointer;
-	box-shadow: 2px 2px #000;
-	text-transform: uppercase;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-decoration: none; /* Ensure the text is centered */
-	color: #000; /* Set text color */
 }
 
 .header {
@@ -69,7 +50,42 @@ body {
 	align-items: center;
 	border-bottom: 3px solid black;
 }
+.menu {
+	grid-area: menu;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100%;
+	transition: ease-in-out 1s;
+}
+.menu img {
+	width: 8rem;
+	height: 3rem;
+}
 
+.menu a {
+	border-radius: 10px;
+	cursor: pointer;
+	text-decoration: none;
+	color: #000;
+}
+.menu :hover {
+	transform: scale(1.05);
+}
+.user-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+.user-info .inner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
 .sidebar {
 	grid-area: sidebar;
 	padding: 10rem 5rem;
@@ -130,9 +146,17 @@ body {
 	flex-direction: column;
 	gap: 10px;
 }
-
-.answers div {
-	font-size: 16px;
+.answers .option {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.answers .option:hover {
+	background-color: #f5f5f5;
 }
 
 .nav-buttons {
@@ -154,5 +178,16 @@ body {
 .hearts {
 	font-size: 18px;
 	color: red;
+}
+.footer {
+	grid-area: footer;
+	display: flex;
+	position: static;
+	justify-content: center;
+	align-items: center;
+	border-top: 3px solid black;
+	background: red;
+	width: 100%;
+	height: 10vh;
 }
 

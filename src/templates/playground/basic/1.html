@@ -20,34 +20,99 @@
     <div class="container">
         <div class="header">
             <div class="menu">
-                <a href="/playground/basic"></a>
+                <a href="/playground/basic">
+                    <img src="../../../static/assets/quiz-menu.png" alt="Menu">
+                </a>
             </div>
             <div class="user-info">
-                <img src="{{url_for('page_pfp',username=session['username'])}}" alt="User Avatar">
-                <span>{{session['username']}}</span>
+                <div class="inner">
+                    <img src="{{url_for('page_pfp',username=session['username'])}}" alt="User Avatar">
+                    <span>{{session['username']}}</span>
+                </div>
                 <div class="hearts">❤️❤️❤️❤️❤️</div>
             </div>
         </div>
         <div class="sidebar">
-            <button>Question 1</button>
-            <button>Question 2</button>
-            <button>Question 3</button>
-            <button>Question 4</button>
-            <button>Question 5</button>
+            <button onclick="onclick_button(1)">Question 1</button>
+            <button onclick="onclick_button(2)">Question 2</button>
+            <button onclick="onclick_button(3)">Question 3</button>
+            <button onclick="onclick_button(4)">Question 4</button>
+            <button onclick="onclick_button(5)">Question 5</button>
         </div>
         <div class="main-content">
             <div class="question">
-                <div class="question-number">1. Question One Whatever It Is:</div>
+                <div class="question-number" id="q1">Q1) What is the primary purpose of linear regression?</div>
+                <div class="question-number" id="q2">Q2) What is the purpose of the coefficient of determination
+                    (R-squared) in linear regression?
+                </div>
+                <div class="question-number" id="q3">Q3) What is the main assumption of linear regression regarding the
+                    relationship between the dependent and independent variables?
+                </div>
+                <div class="question-number" id="q4">Q4) What does the slope of the regression line represent?</div>
+                <div class="question-number" id="q5">Q5) What can be used for regression when there isn't a linear
+                    relationship between the dependent and independent variables?
+                </div>
             </div>
-            <div class="answers">
-                <div>A. Hello</div>
-                <div>B. Hello</div>
-                <div>C. Hello</div>
-                <div>D. Hello</div>
+
+
+
+            <div class="answers" id="a1">
+                <div class="option" id="1a" onclick="onclick_option('a')">A) To classify data points.
+                </div>
+                <div class="option" id="1b" onclick="onclick_option('b')">
+                    B) To predict a continuous dependent variable based on one or more independent variables.
+                </div>
+                <div class="option" id="1c" onclick="onclick_option('c')">C) To cluster data points.
+                </div>
+                <div class="option" id="1d" onclick="onclick_option('d')">D) To reduce the dimensionality of the data.
+                </div>
             </div>
+
+            <div class="answers" id="a2">
+                <div class="option" id="2a" onclick="onclick_option('a')">A) To measure the slope of the regression
+                    line.
+                </div>
+                <div class="option" id="2b" onclick="onclick_option('b')">B) To indicate the strength and direction of
+                    the linear relationship between variables.
+                </div>
+                <div class="option" id="2c" onclick="onclick_option('c')">C) To measure how well the regression model
+                    fits the data.
+                </div>
+                <div class="option" id="2d" onclick="onclick_option('d')">D) To calculate the residuals
+                </div>
+            </div>
+
+            <div class="answers" id="a3">
+                <div class="option" id="3a" onclick="onclick_option('a')">A) The relationship is linear</div>
+                <div class="option" id="3b" onclick="onclick_option('b')">B) The relationship is non-linear.
+                </div>
+                <div class="option" id="3c" onclick="onclick_option('c')">C) There is no relationship</div>
+                <div class="option" id="3d" onclick="onclick_option('d')">D) The relationship changes over time
+                </div>
+            </div>
+            <div class="answers" id="a4">
+                <div class="option" id="4a" onclick="onclick_option('a')">A) The y-intercept of the line.</div>
+                <div class="option" id="4b" onclick="onclick_option('b')">B) The predicted value of the dependent
+                    variable.
+                </div>
+                <div class="option" id="4c" onclick="onclick_option('c')">C) The error term of the model.
+                </div>
+                <div class="option" id="4d" onclick="onclick_option('d')">D) The change in the dependent variable for a
+                    one-unit change in the independent variable.
+                </div>
+            </div>
+
+            <div class="answers" id="a5">
+                <div class="option" id="5a" onclick="onclick_option('a')">A) Polynomial Regression</div>
+                <div class="option" id="5b" onclick="onclick_option('b')">B) Logistic Regression</div>
+                <div class="option" id="5c" onclick="onclick_option('c')">C) Non-negative matrix factorisation
+                </div>
+                <div class="option" id="5d" onclick="onclick_option('d')">D) Convolutional Neural Networks
+                </div>
+            </div>
+
             <div class="nav-buttons">
-                <button>BACK</button>
-                <button>NEXT</button>
+                <button>Submit</button>
             </div>
         </div>
         <div class="footer">

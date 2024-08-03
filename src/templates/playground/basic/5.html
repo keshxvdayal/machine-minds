@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='/playground/basic/quiz-style.css')}}">
+    <script src="{{url_for('static',filename='/playground/basic/quiz-script.js')}}" defer></script>
+    <title>Machine Minds</title>
+</head>
+
+<body>
+    <!-- <div class="container-main">
+        <div class="bg-main"></div>
+        <div class="container header"></div>
+        <div class="container menu-container"></div>
+        <div class="container main-content"></div>
+    </div> -->
+
+    <div class="container">
+        <div class="header">
+            <div class="menu">
+                <a href="/playground/basic">
+                    <img src="../../../static/assets/quiz-menu.png" alt="Menu">
+                </a>
+            </div>
+            <div class="user-info">
+                <div class="inner">
+                    <img src="{{url_for('page_pfp',username=session['username'])}}" alt="User Avatar">
+                    <span>{{session['username']}}</span>
+                </div>
+                <div class="hearts">❤️❤️❤️❤️❤️</div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <button>Question 1</button>
+            <button>Question 2</button>
+            <button>Question 3</button>
+            <button>Question 4</button>
+            <button>Question 5</button>
+        </div>
+        <div class="main-content">
+            <div class="question">
+                <div class="question-number">1. Question One Whatever It Is:</div>
+            </div>
+            <div class="answers">
+                <div class="option">A. Hello</div>
+                <div class="option">B. Hello</div>
+                <div class="option">C. Hello</div>
+                <div class="option">D. Hello</div>
+            </div>
+            <div class="nav-buttons">
+                <button>BACK</button>
+                <button>NEXT</button>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="links"></div>
+        </div>
+    </div>
+</body>
+
+</html>
