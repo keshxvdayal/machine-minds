@@ -200,6 +200,30 @@ api.add_resource(ChangeUsername, '/api/user/change-username')
 
 
 
+class SubmitBasicScore(Resource):
+    def post(self):
+        if not google.authorized: return {'message': 'Not authorized. Please login'}, 401
+
+        req_json = request.get_json()
+        level    = req_json['level']
+        score    = req_json['score']
+        answers  = req_json['answers']
+        answers  = ', '.join(f'{k}:{v}' for k,v in answers.items())
+
+        # Check if the user has already submitted a score for this level
+        prev_score = db.session.query(Score).filter_by(email=session['email'], level=f'basic-{level}').first()
+        # If the user hasnt ever submitted a score for this level
+        if not prev_score:
+            score = Score(email=session['email'], level=f'basic-{level}', score=score, answers=answers)
+            db.session.add(score)
+            db.session.commit()
+        # If the new score is better than (or same as) the previous one
+        elif score >= prev_score.score:
+            prev_score.score   = score
+            prev_score.answers = answers
+            db.session.commit()
+        return {'message': 'Score submitted successfully', 'success': True}, 200
+api.add_resource(SubmitBasicScore, '/api/submit-basic-level')
 
 
 
@@ -238,7 +262,7 @@ def page_dashboard():
         return redirect(url_for('google.login'))
     
     # Basically we have levels like "basic-13" and "advanced-1". Basic levels should always come first and ofc numerical order should be maintained
-    sort_levels = lambda x: x.split('-')
+    sort_levels = lambda x: (0 if x.split('-')[0]=='basic' else 1 , x.split('-')[1] )
 
     user   = db.session.get(User, session['email'])
     scores = db.session.query(Score).filter_by(email=session['email']).all()

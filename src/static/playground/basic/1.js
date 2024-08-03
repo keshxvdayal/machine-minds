@@ -1,10 +1,12 @@
 const LEVEL = 1
+const CORRECT = ['b','c','a','d','a']
 
 let curr_active_ques = 1
 let total_ques = 5
 let ques
 let ans
 let answers = {}
+
 
 function onclick_button(q_no) {
 	curr_active_ques = q_no
@@ -40,15 +42,26 @@ function onclick_option(opt) {
 }
 
 function onclick_submit() {
-	fetch(`/api/submit-basic-level/level${LEVEL}`, {
+	let score = 0;
+	for (let i = 1; i <= total_ques; i++) {
+		if (answers[i] === CORRECT[i - 1]) {
+			score += 1
+		}
+	}
+	
+	fetch(`/api/submit-basic-level`, {
 		method: "POST",
-		body: JSON.stringify(answers),
+		body: JSON.stringify({
+			level: LEVEL,
+			answers: answers,
+			score: score
+		}),
 		headers: { "Content-Type": "application/json" },
 	})
-		.then(response => response.json())
-		.then(data => {
-			alert(`You got ${data.score} questions right!`)
-		})
+	.then(response => response.json())
+	.then(data => {})
+
+	alert(`You got ${score} questions right!`)
 }
 
 onclick_button(curr_active_ques)
