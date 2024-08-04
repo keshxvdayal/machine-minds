@@ -143,9 +143,9 @@ class ForumPost(db.Model):
 class ForumComment(db.Model):
     comment_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     author     = db.Column(db.String(200), nullable=False)
-    post_id    = db.Column(db.Integer,    nullable=False)
-    content    = db.Column(db.Text,       nullable=False)
-    submitted  = db.Column(db.DateTime,   nullable=False)
+    post_id    = db.Column(db.Integer,     nullable=False)
+    content    = db.Column(db.Text,        nullable=False)
+    submitted  = db.Column(db.DateTime,    nullable=False)
     
 class Score(db.Model):
     email   = db.Column(db.String(200), primary_key=True, nullable=False)
@@ -386,7 +386,6 @@ def page_forum_post(post_id:int):
     clause   = User.email == ForumComment.author
     cols     = [ForumComment.content, ForumComment.submitted, User.username]
     comments = comments.join(target=User, onclause=clause).add_columns(*cols).order_by(order).all()
-    print(comments)
     return render_template('forum/post.html', post=post, comments=comments)
 
 
