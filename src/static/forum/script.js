@@ -1,6 +1,7 @@
 function submitComment() {
-    var content = document.getElementById("comment-input").value;
-    var post_id = document.getElementById("post-id").value;
+    let comment_input = document.getElementById("comment-input");
+    let content = comment_input.value;
+    let post_id = document.getElementById("post-id").value;
     
     fetch("/api/forum/post-comment", {
         method: "POST",
@@ -9,7 +10,10 @@ function submitComment() {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {window.location.reload();}
+        if (data.success) {
+            comment_input.value = "";
+            window.location.reload();
+        }
         else {alert('Error posting comment');}
     });
 }

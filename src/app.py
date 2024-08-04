@@ -378,7 +378,8 @@ def page_forum_submit():
 
 @app.route('/forum/post/<int:post_id>/')
 def page_forum_post(post_id:int):
-    post     = db.session.get(ForumPost, post_id)
+    post      = db.session.get(ForumPost, post_id)
+    post.username = db.session.get(User, post.author).username
     comments = ForumComment.query.filter_by(post_id=post_id)
     order    = ForumComment.submitted.desc()
     # Join comments with their authors as to get the username
