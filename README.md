@@ -29,7 +29,7 @@ https://github.com/user-attachments/assets/4996afbf-ca61-4a05-ac33-c60859f9cf44
 - Developed **interactive visualizations** to help users understand the role of the hyperparamters
 - Provided **guides with a human touch** for various machine learning concepts
 - Implemented a **forum** for users to ask questions and get help from the community
-- Integrated a **Google OAuth** to simplify and streamline the login process
+- Integrated **Google OAuth** to simplify and streamline the login process
 
 <br>
 
