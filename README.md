@@ -6,21 +6,9 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/keshxvdayal/machine-minds?color=7F4995&labelColor=302D41&style=for-the-badge)](https://github.com/keshxvdayal/machine-minds)
 [![GitHub issues](https://img.shields.io/github/issues/keshxvdayal/machine-minds?color=066DA5&labelColor=302D41&style=for-the-badge)](https://github.com/keshxvdayal/machine-minds)
 
-![1-img](screenshots/1.png)
 
-<hr>
+<!-- https://user-images.githubusercontent.com/79649185/182558272-255becc8-1dcc-45b5-99ef-22e0596cf490.mp4 -->
 
-![2-img](screenshots/2.png)
-
-<hr>
-
-![3-img](screenshots/3.png)
-
-<hr>
-
-![4-img](screenshots/4.png)
-
-</div>
 
 
 
@@ -29,12 +17,12 @@
 
 
 # Introduction
-- Designed a web platform enabling users to interactively **manipulate data generation processes and model hyperparameters**, with visual feedback of the outcomes
-- Demonstrated knowledge and proficiency in the inner workings of **various classification algorithms**
-- Utilized **Matplotlib** for plotting the data and visualizing the decision boundaries
-- Developed an API using **Flask** to facilitate plot generation
-- Implemented thorough **error validation mechanisms**
-- Deployed the website using **PythonAnywhere**
+- Designed an **attractive game-based learning platform** for machine learning concepts
+- Developed **engaging quizzes** to test the user's knowledge
+- Developed **interactive visualizations** to help users understand the role of the hyperparamters
+- Provided **guides with a human touch** for various machine learning concepts
+- Implemented a **forum** for users to ask questions and get help from the community
+- Integrated a **Google OAuth** to simplify and streamline the login process
 
 <br>
 
@@ -45,6 +33,25 @@
 - SQLite3
 - Matplotlib
 - HTML+CSS+JS
+
+<br>
+
+### Endpoints
+- `/` - Home page
+- `/dashboard` - Dashboard for the user
+
+- `/playground` - Page for choosing basic or advanced levels
+- `/basic` - All the basic levels
+- `/basic/level<int>` - A specific basic level
+- `/advanced` - All the advanced levels
+- `/advanced/level<int>` - A specific advanced level
+
+- `/forum` - Home page of the forum
+- `/forum/<postid>` - A specific post
+- `/forum/submit` - Page for creating a new post
+
+- `/guides` - All the guides
+- `/guides/<guideid>` - A specific guide
 
 
 
@@ -68,35 +75,4 @@ python main.py
 ```
 
 And voila, the website should be up and running on `http://127.0.0.1:5001`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Machine Learning Gamification Project
-
-Machine Minds is a Machine Learning Gamification Project! This project aims to make learning machine
-learning concepts easier and more engaging through gamification and interactive elements.
-
-## Features
-
-- **Interactive Learning**: Engage with machine learning concepts through interactive elements.
-- **Gamification**: Learn through fun and engaging activities.
-- **Community Support**: Join our community to get help and support from fellow learners.
 
