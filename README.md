@@ -7,7 +7,11 @@
 [![GitHub issues](https://img.shields.io/github/issues/keshxvdayal/machine-minds?color=066DA5&labelColor=302D41&style=for-the-badge)](https://github.com/keshxvdayal/machine-minds)
 
 
-https://github.com/keshxvdayal/machine-minds/raw/main/assets/recording.mp4
+
+
+https://github.com/user-attachments/assets/4996afbf-ca61-4a05-ac33-c60859f9cf44
+
+<!-- https://github.com/keshxvdayal/machine-minds/raw/main/assets/recording.mp4 -->
 <!-- https://user-images.githubusercontent.com/79649185/182558272-255becc8-1dcc-45b5-99ef-22e0596cf490.mp4 -->
 
 </div>
