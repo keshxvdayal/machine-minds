@@ -78,7 +78,7 @@ First of all, ensure that [git](https://git-scm.com/downloads) and [python](http
 git clone https://github.com/keshxvdayal/machine-minds
 cd machine-minds/src
 pip install -r requirements.txt
-python main.py
+python app.py
 ```
 
 And voila, the website should be up and running on `http://127.0.0.1:5001`
