@@ -43,84 +43,23 @@ https://github.com/keshxvdayal/machine-minds/raw/main/assets/recording.mp4
 (Common)
 - `/` - Home page
 - `/dashboard` - Dashboard for the user
+
 (Playground)
 - `/playground` - Page for choosing basic or advanced levels
 - `/basic` - All the basic levels
 - `/basic/level<int>` - A specific basic level
 - `/advanced` - All the advanced levels
 - `/advanced/level<int>` - A specific advanced level
+
 (Forum)
 - `/forum` - Home page of the forum
 - `/forum/<postid>` - A specific post
 - `/forum/submit` - Page for creating a new post
+
 (Guides)
 - `/guides` - All the guides
 - `/guides/<guideid>` - A specific guide
 
-
-
-<table>
-    <tr>
-        <td rowspan=2>Common</td>
-    </tr>
-    <tr>
-        <td>`/`</td>
-        <td>Home page</td>
-    </tr>
-    <tr>
-        <td>`/dashboard`</td>
-        <td>Dashboard for the user</td>
-    </tr>
-    <tr>
-        <td rowspan=2>Playground</td>
-    </tr>
-    <tr>
-        <td>`/playground`</td>
-        <td>Page for choosing basic or advanced levels</td>
-    </tr>
-    <tr>
-        <td>`/basic`</td>
-        <td>All the basic levels</td>
-    </tr>
-    <tr>
-        <td>`/basic/level<int>`</td>
-        <td>A specific basic level</td>
-    </tr>
-    <tr>
-        <td>`/advanced`</td>
-        <td>All the advanced levels</td>
-    </tr>
-    <tr>
-        <td>`/advanced/level<int>`</td>
-        <td>A specific advanced level</td>
-    </tr>
-    <tr>
-        <td rowspan=2>Forum</td>
-    </tr>
-    <tr>
-        <td>`/forum`</td>
-        <td>Home page of the forum</td>
-    </tr>
-    <tr>
-        <td>`/forum/<postid>`</td>
-        <td>A specific post</td>
-    </tr>
-    <tr>
-        <td>`/forum/submit`</td>
-        <td>Page for creating a new post</td>
-    </tr>
-    <tr>
-        <td rowspan=2>Guides</td>
-    </tr>
-    <tr>
-        <td>`/guides`</td>
-        <td>All the guides</td>
-    </tr>
-    <tr>
-        <td>`/guides/<guideid>`</td>
-        <td>A specific guide</td>
-    </tr>
-</table>
 
 
 
