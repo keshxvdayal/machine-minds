@@ -40,25 +40,20 @@ https://github.com/keshxvdayal/machine-minds/raw/main/assets/recording.mp4
 <br>
 
 ### Endpoints
-(Common)
-- `/` - Home page
-- `/dashboard` - Dashboard for the user
-
-(Playground)
-- `/playground` - Page for choosing basic or advanced levels
-- `/basic` - All the basic levels
-- `/basic/level<int>` - A specific basic level
-- `/advanced` - All the advanced levels
-- `/advanced/level<int>` - A specific advanced level
-
-(Forum)
-- `/forum` - Home page of the forum
-- `/forum/<postid>` - A specific post
-- `/forum/submit` - Page for creating a new post
-
-(Guides)
-- `/guides` - All the guides
-- `/guides/<guideid>` - A specific guide
+| URL Path                 | Description                        |
+|--------------------------|------------------------------------|
+| `/`                      | Home page                          |
+| `/dashboard`             | Dashboard for the user             |
+| `/playground`            | Page for choosing basic or advanced levels |
+| `/basic`                 | All the basic levels               |
+| `/basic/level<int>`      | A specific basic level             |
+| `/advanced`              | All the advanced levels            |
+| `/advanced/level<int>`   | A specific advanced level          |
+| `/forum`                 | Home page of the forum             |
+| `/forum/<postid>`        | A specific post                    |
+| `/forum/submit`          | Page for creating a new post       |
+| `/guides`                | All the guides                     |
+| `/guides/<guideid>`      | A specific guide                   |
 
 
 
